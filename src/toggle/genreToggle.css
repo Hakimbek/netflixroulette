@@ -1,0 +1,30 @@
+.genre_toggle__wrapper {
+    margin-top: 100px;
+}
+
+.genre_toggle__button {
+    width: 500px;
+    height: 50px;
+    background-color: #323232;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 20px;
+}
+
+.genre_toggle__options {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 500px;
+    height: 180px;
+    background-color: #232323;
+    opacity: 0.8;
+    border-radius: 5px;
+}
+
+.genre_toggle__option {
+    margin-left: 10px;
+    font-size: 20px;
+    color: white;
+}
