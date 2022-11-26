@@ -10,7 +10,7 @@ module.exports = {
     },
   resolve: {
     modules: [path.resolve(__dirname, './src'), 'node_modules'],
-    extensions: ['.js', '.jsx', '.json']
+    extensions: ['.tsx', '.ts', '.js', '.jsx', '.json']
   },
   optimization: {
     splitChunks: {
