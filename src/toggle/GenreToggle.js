@@ -8,7 +8,7 @@ function GenreToggle() {
         <div className='genre_toggle__wrapper'>
            <button className='genre_toggle__button' onClick={() => setToggle(e => !e)}>Select Genre</button>
 
-            {toggle ? <div className='genre_toggle__options'>
+            {toggle && <div className='genre_toggle__options'>
             <div className='genre_toggle__option'>
                 <input type={'checkbox'} /> Crime
             </div>
@@ -21,7 +21,7 @@ function GenreToggle() {
             <div className='genre_toggle__option'>
                 <input type={'checkbox'} /> Comedy
             </div>
-           </div> : ''}
+           </div>}
         </div>
     );
 }
