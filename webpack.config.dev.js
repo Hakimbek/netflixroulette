@@ -1,5 +1,5 @@
 const path = require("path");
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   mode: "development",
@@ -9,8 +9,8 @@ module.exports = {
     filename: "[name]bundle.js",
   },
   resolve: {
-    modules: [path.resolve(__dirname, './src'), 'node_modules'],
-    extensions: ['.tsx', '.ts', '.js', '.jsx', '.json']
+    modules: [path.resolve(__dirname, "./src"), "node_modules"],
+    extensions: [".js", ".jsx", ".ts", ".tsx"],
   },
   devServer: {
     port: "3000",
@@ -24,13 +24,18 @@ module.exports = {
         exclude: /node_modules/,
         use: "babel-loader",
       },
+      {
+        test: /\.tsx?$/,
+        use: "ts-loader",
+        exclude: /node_modules/,
+      },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-        title: 'Hello World',
-        template: 'public/index.html',
-        filename: 'index.html',
-      }),
+      title: "Hello World",
+      template: "public/index.html",
+      filename: "index.html",
+    }),
   ],
 };
