@@ -1,4 +1,3 @@
-import React from "react";
 import Logo from "./Logo/Logo";
 import AddMovie from "./AddMovie/AddMovie";
 import "./title.css";

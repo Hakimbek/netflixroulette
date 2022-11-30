@@ -1,4 +1,3 @@
-import React from "react";
 import Genre from "./Genre/Genre";
 import Date from "./Date/Date";
 import "./sort.css";

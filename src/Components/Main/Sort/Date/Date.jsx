@@ -1,4 +1,3 @@
-import React from "react";
 import Text from "./Text/Text";
 import Button from "./Button/Button";
 import "./date.css";

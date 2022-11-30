@@ -1,4 +1,3 @@
-import React from "react";
 import MovieCard from "./MovieCard/MovieCard";
 import movies from "../../../assets/movie/movies";
 import "./movieCards.css";

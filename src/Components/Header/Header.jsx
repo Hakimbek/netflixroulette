@@ -1,4 +1,3 @@
-import React from "react";
 import Title from "./Title/Title";
 import Search from "./Search/Search";
 import "./header.css";
