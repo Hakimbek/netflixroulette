@@ -42,6 +42,6 @@
     "react-dom": "^18.2.0"
   },
   "lint-staged": {
-    "./src/**/*.js?(x)": ["npm lint:fix", "npm prettier:fix"]
+    "./src/**/*.js?(x)": ["npm run lint:fix", "npm run prettier:fix"]
   }
 }
