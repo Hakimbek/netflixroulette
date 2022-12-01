@@ -1,17 +1,29 @@
+import { Component } from "react";
 import PropTypes from "prop-types";
 
-function ErroBoundary(props) {
-  const OopsError = () => (
-    <h2>Something went wrong... We are doing our best to fix the issue</h2>
-  );
+class ErrorBoundary extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
 
-  let isOk = true;
+  static getDerivedStateFromError() {
+    this.setState({
+      hasError: true,
+    });
+  }
 
-  return <>{isOk ? props.children : <OopsError />}</>;
+  render() {
+    return this.state.hasError ? (
+      <h2>Something went wrong but it is okay</h2>
+    ) : (
+      this.props.children
+    );
+  }
 }
 
-ErroBoundary.propTypes = {
-  children: PropTypes.element.isRequired,
+ErrorBoundary.propTypes = {
+  children: PropTypes.element,
 };
 
-export default ErroBoundary;
+export default ErrorBoundary;

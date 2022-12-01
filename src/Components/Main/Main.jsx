@@ -1,14 +1,14 @@
 import Sort from "./Sort/Sort";
 import MovieCards from "./MovieCards/MovieCards";
-import ErroBoundary from "./ErrorBoundary";
+import ErrorBoundary from "./ErrorBoundary";
 
 function Main() {
   return (
     <>
       <Sort />
-      <ErroBoundary>
+      <ErrorBoundary>
         <MovieCards />
-      </ErroBoundary>
+      </ErrorBoundary>
     </>
   );
 }
