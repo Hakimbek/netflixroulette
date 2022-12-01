@@ -1,0 +1,15 @@
+.wrapper_layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header_wrapper {
+  padding: 40px;
+  background-image: url("../../../assets/image/header.jpg");
+  background-size: cover;
+}
+
+.search_wrapper {
+  padding: 50px 130px 100px 130px;
+}

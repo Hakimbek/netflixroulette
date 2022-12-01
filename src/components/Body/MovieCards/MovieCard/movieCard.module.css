@@ -1,0 +1,32 @@
+.movie_card__wrapper {
+  margin: 40px 0;
+  width: 320px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.movie_card__image {
+  width: 320px;
+  height: 480px;
+}
+
+.movie_card__name_year {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.movie_card__name {
+  font-size: 20px;
+}
+
+.movie_card__year {
+  border: 1px solid #979797;
+  border-radius: 5px;
+  padding: 5px 20px;
+}
+
+.movie_card__genre {
+  margin: 0;
+  font-size: 14px;
+}
