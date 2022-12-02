@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Component } from "react";
 import styled from "styled-components";
 import select from "../../../../assets/image/select.png";
 
@@ -37,37 +37,52 @@ const ListItem = styled("div")`
   }
 `;
 
-const options = ["Documentary", "Horror", "Crime", "Comedy"];
+class ModalSelect extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isOpen: false,
+      selectedOption: null,
+      options: ["Documentary", "Horror", "Crime", "Comedy"],
+    };
+  }
 
-export default function ModalSelect() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(null);
-
-  const toggling = () => setIsOpen(!isOpen);
-
-  const onOptionClicked = (value) => () => {
-    setSelectedOption(value);
-    setIsOpen(false);
-    console.log(selectedOption);
+  toggling = () => {
+    this.setState({ ...this.state, isOpen: !this.state.isOpen });
   };
 
-  return (
-    <>
-      <DropDownHeader onClick={toggling}>
-        {selectedOption || "Documentary"}
-        <img src={select} alt="close" />
-      </DropDownHeader>
-      {isOpen && (
-        <DropDownListContainer>
-          <DropDownList>
-            {options.map((option) => (
-              <ListItem onClick={onOptionClicked(option)} key={Math.random()}>
-                {option}
-              </ListItem>
-            ))}
-          </DropDownList>
-        </DropDownListContainer>
-      )}
-    </>
-  );
+  onOptionClicked = (value) => {
+    this.setState({
+      ...this.state,
+      isOpen: !this.state.isOpen,
+      selectedOption: value,
+    });
+  };
+
+  render() {
+    return (
+      <>
+        <DropDownHeader onClick={this.toggling}>
+          {this.state.selectedOption || "Documentary"}
+          <img src={select} alt="close" />
+        </DropDownHeader>
+        {this.state.isOpen && (
+          <DropDownListContainer>
+            <DropDownList>
+              {this.state.options.map((option) => (
+                <ListItem
+                  onClick={() => this.onOptionClicked(option)}
+                  key={Math.random()}
+                >
+                  {option}
+                </ListItem>
+              ))}
+            </DropDownList>
+          </DropDownListContainer>
+        )}
+      </>
+    );
+  }
 }
+
+export default ModalSelect;

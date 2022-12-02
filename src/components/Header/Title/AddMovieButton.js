@@ -1,22 +1,32 @@
-import React, { useState } from "react";
-import Modal from "../../Modal/Modal";
+import React, { Component } from "react";
 import styles from "./title.module.css";
 
-function AddMovieButton() {
-  const [toggle, setToggle] = useState(false);
+const Modal = React.lazy(() => import("../../Modal/Modal"));
 
-  const openModal = () => {
-    setToggle((e) => !e);
+class AddMovieButton extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { toggle: false };
+  }
+
+  openModal = () => {
+    this.setState({ toggle: !this.state.toggle });
   };
 
-  return (
-    <>
-      <button onClick={openModal} className={styles.add_button}>
-        + Add Movie
-      </button>
-      <Modal title={"ADD MOVIE"} isClicked={toggle} toggleFunc={openModal} />
-    </>
-  );
+  render() {
+    return (
+      <>
+        <button onClick={this.openModal} className={styles.add_button}>
+          + Add Movie
+        </button>
+        <Modal
+          title={"ADD MOVIE"}
+          isClicked={this.state.toggle}
+          toggleFunc={this.openModal}
+        />
+      </>
+    );
+  }
 }
 
 export default AddMovieButton;

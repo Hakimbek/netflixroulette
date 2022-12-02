@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Component } from "react";
 import styled from "styled-components";
 import select from "../../../../assets/image/select.png";
 import styles from "./sort.module.css";
@@ -43,51 +43,53 @@ const ListItem = styled("div")`
   }
 `;
 
-const options = ["TITLE", "RELEASE DATE", "RATING", "RUNTIME"];
+class SortBy extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isOpen: false,
+      selectedOption: null,
+      options: ["TITLE", "RELEASE DATE", "RATING", "RUNTIME"],
+    };
+  }
 
-export default function SortBy() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(null);
-
-  const toggling = () => setIsOpen(!isOpen);
-
-  const onOptionClicked = (value) => () => {
-    setSelectedOption(value);
-    setIsOpen(false);
-    console.log(selectedOption);
+  toggling = () => {
+    this.setState({ ...this.state, isOpen: !this.state.isOpen });
   };
 
-  return (
-    <>
-      <button className={styles.date_text}>SORT BY</button>
-      <DropDownHeader onClick={toggling}>
-        {selectedOption || "RELEASE DATE"}
-        <img src={select} alt="close" />
-      </DropDownHeader>
-      {isOpen && (
-        <DropDownListContainer>
-          <DropDownList>
-            {options.map((option) => (
-              <ListItem onClick={onOptionClicked(option)} key={Math.random()}>
-                {option}
-              </ListItem>
-            ))}
-          </DropDownList>
-        </DropDownListContainer>
-      )}
-    </>
-  );
+  onOptionClicked = (value) => {
+    this.setState({
+      ...this.state,
+      isOpen: !this.state.isOpen,
+      selectedOption: value,
+    });
+  };
+
+  render() {
+    return (
+      <>
+        <button className={styles.date_text}>SORT BY</button>
+        <DropDownHeader onClick={this.toggling}>
+          {this.state.selectedOption || "RELEASE DATE"}
+          <img src={select} alt="close" />
+        </DropDownHeader>
+        {this.state.isOpen && (
+          <DropDownListContainer>
+            <DropDownList>
+              {this.state.options.map((option) => (
+                <ListItem
+                  onClick={() => this.onOptionClicked(option)}
+                  key={Math.random()}
+                >
+                  {option}
+                </ListItem>
+              ))}
+            </DropDownList>
+          </DropDownListContainer>
+        )}
+      </>
+    );
+  }
 }
 
-// function Date() {
-//   return (
-//     <>
-//       <button className={styles.date_text}>SORT BY RELEASE DATE</button>
-//       <button className={styles.date_button}>
-//         <img src={select} alt="select" />
-//       </button>
-//     </>
-//   );
-// }
-//
-// export default Date;
+export default SortBy;
