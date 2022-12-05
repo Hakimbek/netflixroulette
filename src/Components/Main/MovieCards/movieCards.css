@@ -1,7 +1,0 @@
-.movie_cards__wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-top: 20px;
-  padding: 0 60px;
-}
