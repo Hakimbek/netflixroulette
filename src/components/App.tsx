@@ -1,16 +1,14 @@
-import React from "react";
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
-import Body from "./Body/Body";
-import ErrorBoundary from "./ErrorBoundary";
+import MoviesFilterBar from "./MoviesFilterBar/MoviesFilterBar";
+import MovieCards from "./MovieCards/MovieCards";
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <ErrorBoundary>
-        <Body />
-      </ErrorBoundary>
+      <MoviesFilterBar />
+      <MovieCards />
       <Footer />
     </div>
   );
