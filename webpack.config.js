@@ -1,8 +1,7 @@
 const path = require("path");
 
-module.exports = ({mode}) => {
-  if (mode === 'development') {
-    return require('./webpack.config.dev')
-  }
-  return require('./webpack.config.prod')
+module.exports = ({ mode }) => {
+  return mode === "development"
+    ? require("./webpack.config.dev")
+    : require("./webpack.config.prod");
 };

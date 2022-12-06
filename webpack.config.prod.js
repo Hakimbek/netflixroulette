@@ -1,13 +1,16 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 module.exports = {
-  mode: "production",
-  entry: "./src/index.js",
+  entry: "./src/index.tsx",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name]bundle.js",
+    clean: true,
   },
+  mode: "production",
   resolve: {
     modules: [path.resolve(__dirname, "./src"), "node_modules"],
     extensions: [".js", ".jsx", ".ts", ".tsx"],
@@ -16,13 +19,27 @@ module.exports = {
     splitChunks: {
       chunks: "all",
     },
+    minimizer: [new CssMinimizerPlugin()],
   },
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: "babel-loader",
+        test: /\.m?js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env", "@babel/preset-react"],
+          },
+        },
+      },
+      {
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: "asset/resource",
       },
       {
         test: /\.tsx?$/,
@@ -36,6 +53,9 @@ module.exports = {
       title: "Hello World",
       template: "public/index.html",
       filename: "index.html",
+    }),
+    new MiniCssExtractPlugin({
+      filename: "style.css",
     }),
   ],
 };
