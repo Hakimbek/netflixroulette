@@ -1,0 +1,31 @@
+.movieCard {
+  width: 320px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.movieCard_image {
+  width: 320px;
+  height: 480px;
+}
+
+.movieCard_title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.movieCard_year {
+  border: 1px solid #979797;
+  border-radius: 5px;
+  padding: 5px 20px;
+}
+
+.movieCard_name {
+  margin: 0;
+  font-size: 20px;
+}
+
+.movieCard_genre {
+  margin-top: 0;
+}
