@@ -10,11 +10,8 @@ function DropDownList({
   return (
     <div className={styles.dropDown_list}>
       {toggle &&
-        options.map((option) => (
-          <DropDownItem
-            key={Math.random()}
-            handleSelectedOption={handleSelectedOption}
-          >
+        options.map((option, index) => (
+          <DropDownItem key={index} handleSelectedOption={handleSelectedOption}>
             {option}
           </DropDownItem>
         ))}

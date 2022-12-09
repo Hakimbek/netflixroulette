@@ -1,0 +1,59 @@
+.modal_wrapper {
+  position: fixed;
+  z-index: 3;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 900px;
+  height: 600px;
+  margin: auto;
+  padding: 20px;
+  background-color: #232323;
+}
+
+.modal_opacity {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #424242;
+  opacity: 0.5;
+}
+
+.deleteModal {
+  position: fixed;
+  z-index: 3;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 400px;
+  height: 200px;
+  margin: auto;
+  padding: 20px;
+  background-color: #232323;
+}
+
+.modalDelete_button {
+  display: block;
+  width: 150px;
+  height: 50px;
+  margin: 40px 0 0 auto;
+  border: none;
+  border-radius: 5px;
+  background-color: #f65261;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.modalDelete_button:hover {
+  background-color: #c4404c;
+}
+
+.modalDelete_button:active {
+  background-color: #a2353f;
+}
