@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import MovieCard from "./MovieCard/MovieCard";
-import moviesArray from "../../../mockData/movies";
+import moviesArray from "../../mockData/movies";
 import { Movie } from "../../types/movieCard.types";
 import styles from "./movieCadrds.module.css";
 
@@ -14,7 +14,7 @@ function MovieCards() {
   return (
     <div className={styles.movieCards}>
       {movies?.map((movie) => (
-        <MovieCard key={Math.random()} movie={movie} />
+        <MovieCard key={movie.id} movie={movie} />
       ))}
     </div>
   );

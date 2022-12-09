@@ -25,6 +25,7 @@ module.exports = {
       version: "detect",
     },
   },
+  ignorePatterns: ["webpack.common.js"],
   rules: {
     "prettier/prettier": ["error", { endOfLine: "auto" }],
     "@typescript-eslint/explicit-function-return-type": "off",
