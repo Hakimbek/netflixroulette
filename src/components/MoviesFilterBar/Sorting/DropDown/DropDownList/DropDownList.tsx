@@ -1,6 +1,6 @@
 import styles from "../dropDown.module.css";
 import DropDownItem from "./DropDownItem";
-import DropDownListProps from "../../../../../types/dropDownList.types";
+import DropDownListProps from "../../../../../types/sorting/dropDownList.types";
 
 function DropDownList({
   options,

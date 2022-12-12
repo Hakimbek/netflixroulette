@@ -1,5 +1,5 @@
 import styles from "../dropDown.module.css";
-import DropDownItemProps from "../../../../../types/dropDownItem.types";
+import DropDownItemProps from "../../../../../types/sorting/dropDownItem.types";
 
 function DropDownItem({ children, handleSelectedOption }: DropDownItemProps) {
   return (
@@ -7,7 +7,7 @@ function DropDownItem({ children, handleSelectedOption }: DropDownItemProps) {
       className={styles.dropDown_item}
       onClick={() => handleSelectedOption(children)}
     >
-      {children}
+      {children.optionName}
     </div>
   );
 }

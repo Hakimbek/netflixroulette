@@ -1,4 +1,3 @@
-import WrapperSpaceBetween from "../../common/WrapperSpaceBetween/WrapperSpaceBetween";
 import SearchTitle from "./SearchTitle/SearchTitle";
 import SearchButton from "./SearchButton/SearchButton";
 import SearchInput from "./SearchInput/SearchInput";
@@ -8,10 +7,10 @@ function SearchWrapper() {
   return (
     <div className={styles.searchWrapper}>
       <SearchTitle />
-      <WrapperSpaceBetween>
+      <div className={styles.search_buttonInput_wrapper}>
         <SearchInput />
         <SearchButton />
-      </WrapperSpaceBetween>
+      </div>
     </div>
   );
 }

@@ -1,17 +1,30 @@
 import styles from "./movieCard.module.css";
-import { MovieCardProps } from "../../../types/movieCard.types";
-import MovieSettingButton from "./MovieSettingButton/MovieSettingButton";
+import MovieSettings from "./MovieSettings/MovieSettings";
+import { MovieCardPropsType } from "../../../types/movie/movieCard.types";
+import { useAppDispatch } from "../../../redux/hooks";
+import { openMovieDetails } from "../../../redux/slice/movieDetailsSlice";
 
-function MovieCard({ movie }: MovieCardProps) {
+function MovieCard({ movie }: MovieCardPropsType) {
+  const dispatch = useAppDispatch();
+
   return (
     <div className={styles.movieCard}>
-      <MovieSettingButton />
-      <img className={styles.movieCard_image} src={movie.imageUrl} alt="Url" />
-      <div className={styles.movieCard_title}>
-        <p className={styles.movieCard_name}>{movie.name}</p>
-        <p className={styles.movieCard_year}>{movie.year}</p>
+      <MovieSettings movieId={movie.id} />
+      <div
+        className={styles.movieCard_imageWrapper}
+        onClick={() => dispatch(openMovieDetails(movie))}
+      >
+        <img
+          className={styles.movieCard_image}
+          src={movie.poster_path}
+          alt="Url"
+        />
       </div>
-      <p className={styles.movieCard_genre}>{movie.genre}</p>
+      <div className={styles.movieCard_title}>
+        <div className={styles.movieCard_name}>{movie.title}</div>
+        <div className={styles.movieCard_year}>{movie.release_date}</div>
+      </div>
+      <p>{movie.genres}</p>
     </div>
   );
 }

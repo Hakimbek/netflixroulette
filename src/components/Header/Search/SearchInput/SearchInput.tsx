@@ -4,7 +4,6 @@ function SearchInput() {
   return (
     <input
       className={styles.searchInput}
-      type={"text"}
       placeholder={"What do you want to watch?"}
     />
   );

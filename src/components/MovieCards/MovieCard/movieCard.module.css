@@ -4,6 +4,12 @@
   cursor: pointer;
 }
 
+.movieCard_imageWrapper {
+  width: 320px;
+  height: 480px;
+  background-color: #424242;
+}
+
 .movieCard_image {
   width: 320px;
   height: 480px;
@@ -13,19 +19,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 10px 0;
 }
 
 .movieCard_year {
+  width: 80px;
   border: 1px solid #979797;
   border-radius: 5px;
   padding: 5px 20px;
 }
 
 .movieCard_name {
-  margin: 0;
+  width: 180px;
   font-size: 20px;
-}
-
-.movieCard_genre {
-  margin-top: 0;
 }

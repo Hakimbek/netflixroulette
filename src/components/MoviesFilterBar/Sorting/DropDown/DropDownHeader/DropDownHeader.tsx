@@ -1,7 +1,7 @@
 import collapseIconUp from "../../../../../assets/images/collapseIconUp.png";
 import collapseIconDown from "../../../../../assets/images/collapseIconDown.png";
 import styles from "../dropDown.module.css";
-import DropDownHeaderProps from "../../../../../types/dopDownHeader.types";
+import DropDownHeaderProps from "../../../../../types/sorting/dopDownHeader.types";
 
 function DropDownHeader({
   toggle,

@@ -1,0 +1,19 @@
+.modalHeader_wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modalHeader_title {
+  margin: 0;
+  color: white;
+  font-size: 32px;
+  letter-spacing: 4px;
+}
+
+.modalHeader_closeButton {
+  padding: 20px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
