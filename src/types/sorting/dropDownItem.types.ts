@@ -1,8 +1,6 @@
-import { OptionsTypes } from "./options.types";
+import { SortingOptionsType } from "./sortingOptions.type";
 
-type DropDownItemProps = {
-  children: OptionsTypes;
-  handleSelectedOption: (option: OptionsTypes) => void;
+export type DropDownItemType = {
+  children: SortingOptionsType;
+  handleSelectedOption: (option: SortingOptionsType) => void;
 };
-
-export default DropDownItemProps;

@@ -1,14 +1,34 @@
-import EditMovieModal from "../../../Modal/EditMovieModal/EditMovieModal";
-import DeleteMovieModal from "../../../Modal/DeleteMovieModal/DeleteMovieModal";
 import { useState } from "react";
 import MovieSettingsButton from "./MovieSettingsButton/MovieSettingsButton";
 import MovieSettingsProperty from "./MovieSettingsProperty/MovieSettingsProperty";
-import { MovieSettingsPropsType } from "../../../../types/movie/movieSettings.types";
+import { MovieSettingsType } from "../../../../types/movie/movieSettings.type";
+import DeleteModal from "../../../Modal/DeleteModal";
+import EditModal from "../../../Modal/EditModal";
 
-function MovieSettings({ movieId }: MovieSettingsPropsType) {
+function MovieSettings({ movieId }: MovieSettingsType) {
   const [movieSettingToggle, setMovieSettingToggle] = useState(true);
+  const [deleteModalToggle, setDeleteModalToggle] = useState(false);
+  const [editModalToggle, setEditModalToggle] = useState(false);
 
   const handleMovieSettingToggle = () => setMovieSettingToggle((prev) => !prev);
+
+  const openDeleteModal = () => {
+    setDeleteModalToggle((prev) => !prev);
+  };
+
+  const closeDeleteModal = () => {
+    setDeleteModalToggle((prev) => !prev);
+    handleMovieSettingToggle();
+  };
+
+  const openEditModal = () => {
+    setEditModalToggle((prev) => !prev);
+  };
+
+  const closeEditModal = () => {
+    setEditModalToggle((prev) => !prev);
+    handleMovieSettingToggle();
+  };
 
   return movieSettingToggle ? (
     <MovieSettingsButton handleMovieSettingToggle={handleMovieSettingToggle} />
@@ -16,13 +36,17 @@ function MovieSettings({ movieId }: MovieSettingsPropsType) {
     <>
       <MovieSettingsProperty
         handleMovieSettingToggle={handleMovieSettingToggle}
+        openDeleteModal={openDeleteModal}
+        openEditModal={openEditModal}
       />
-      <EditMovieModal
+      <DeleteModal
+        toggle={deleteModalToggle}
+        handleCloseButton={closeDeleteModal}
         movieId={movieId}
-        handleMovieSettingToggle={handleMovieSettingToggle}
       />
-      <DeleteMovieModal
-        handleMovieSettingToggle={handleMovieSettingToggle}
+      <EditModal
+        toggle={editModalToggle}
+        handleCloseButton={closeEditModal}
         movieId={movieId}
       />
     </>

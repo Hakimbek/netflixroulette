@@ -2,51 +2,33 @@ import { useState } from "react";
 import DropDownHeader from "./DropDownHeader/DropDownHeader";
 import DropDownList from "./DropDownList/DropDownList";
 import styles from "./dropDown.module.css";
-import { OptionsTypes } from "../../../../types/sorting/options.types";
-import { useAppDispatch } from "../../../../redux/hooks";
-import { setSortProperties } from "../../../../redux/slice/moviesSlice";
+import { SortingOptionsType } from "../../../../types/sorting/sortingOptions.type";
 
 function DropDown() {
-  const dispatch = useAppDispatch();
-  const options: Array<OptionsTypes> = [
+  const options: Array<SortingOptionsType> = [
     {
       optionName: "Nothing",
       sortBy: "",
       sortOrder: "",
     },
     {
-      optionName: "Release Date(asc)",
+      optionName: "Release Date",
       sortBy: "release_date",
       sortOrder: "asc",
     },
     {
-      optionName: "Release Date(desc)",
-      sortBy: "release_date",
-      sortOrder: "desc",
-    },
-    {
-      optionName: "Rating(asc)",
+      optionName: "Rating",
       sortBy: "vote_average",
       sortOrder: "asc",
     },
     {
-      optionName: "Rating(desc)",
-      sortBy: "vote_average",
-      sortOrder: "desc",
-    },
-    {
-      optionName: "Runtime(asc)",
+      optionName: "Runtime",
       sortBy: "runtime",
       sortOrder: "asc",
-    },
-    {
-      optionName: "Runtime(desc)",
-      sortBy: "runtime",
-      sortOrder: "desc",
     },
   ];
   const [toggle, setToggle] = useState(false);
-  const [selectedOption, setSelectedOption] = useState<OptionsTypes>(
+  const [selectedOption, setSelectedOption] = useState<SortingOptionsType>(
     options[0]
   );
 
@@ -54,9 +36,8 @@ function DropDown() {
     setToggle(!toggle);
   };
 
-  const handleSelectedOption = (option: OptionsTypes) => {
+  const handleSelectedOption = (option: SortingOptionsType) => {
     setSelectedOption(option);
-    dispatch(setSortProperties(option));
     handleToggle();
   };
 

@@ -1,7 +1,7 @@
 import styles from "../dropDown.module.css";
-import DropDownItemProps from "../../../../../types/sorting/dropDownItem.types";
+import { DropDownItemType } from "../../../../../types/sorting/dropDownItem.types";
 
-function DropDownItem({ children, handleSelectedOption }: DropDownItemProps) {
+function DropDownItem({ children, handleSelectedOption }: DropDownItemType) {
   return (
     <div
       className={styles.dropDown_item}

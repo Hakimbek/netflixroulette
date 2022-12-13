@@ -1,0 +1,42 @@
+.selectedGenre {
+  display: flex;
+  align-items: center;
+  width: 500px;
+  height: 44px;
+  margin-left: 10px;
+  padding-left: 10px;
+  padding-right: 2px;
+  border-radius: 5px;
+  background-color: #323232;
+  color: white;
+  font-size: 18px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.genreOptionsList {
+  position: absolute;
+  width: 515px;
+  margin-left: 10px;
+  border-radius: 5px;
+  background: #232323;
+  color: white;
+  font-size: 18px;
+}
+
+.genreOption {
+  display: flex;
+  padding: 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.genreOption:hover {
+  background-color: #f65261;
+}
+
+.modalBody_inputLabel {
+  margin: 0 0 0 10px;
+  color: #f65261;
+  font-size: 16px;
+}

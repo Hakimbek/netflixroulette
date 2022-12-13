@@ -1,8 +1,8 @@
 import styles from "../genre.module.css";
-import GenreButtonProps from "../../../../types/sorting/genreButton.types";
+import { GenreButtonType } from "../../../../types/sorting/genreButton.type";
 import React from "react";
 
-function GenreButton({ children, active, setActive }: GenreButtonProps) {
+function GenreButton({ children, active, setActive }: GenreButtonType) {
   const style: React.CSSProperties =
     active === children
       ? {

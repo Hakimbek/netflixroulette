@@ -1,10 +1,7 @@
-import { selectAmountOfMovies } from "../../redux/slice/moviesSlice";
-import { useAppSelector } from "../../redux/hooks";
 import styles from "./moviesAmount.module.css";
+import { MoviesAmountType } from "../../types/movie/moviesAmount.type";
 
-function MoviesAmount() {
-  const moviesAmount = useAppSelector(selectAmountOfMovies);
-
+function MoviesAmount({ moviesAmount }: MoviesAmountType) {
   return <div className={styles.moviesAmount}>{moviesAmount} movies found</div>;
 }
 

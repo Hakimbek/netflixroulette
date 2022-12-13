@@ -1,10 +1,10 @@
 import styles from "../movieSettings.module.css";
 import settingIcon from "../../../../../assets/images/settingIcon.png";
-import { MovieSettingsButtonPropsType } from "../../../../../types/movie/movieSettings.types";
+import { MovieSettingsButtonType } from "../../../../../types/movie/movieSettings.type";
 
 function MovieSettingsButton({
   handleMovieSettingToggle,
-}: MovieSettingsButtonPropsType) {
+}: MovieSettingsButtonType) {
   return (
     <button
       className={styles.movieSettingButton}

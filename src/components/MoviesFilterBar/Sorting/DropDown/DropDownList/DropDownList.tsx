@@ -1,12 +1,12 @@
 import styles from "../dropDown.module.css";
 import DropDownItem from "./DropDownItem";
-import DropDownListProps from "../../../../../types/sorting/dropDownList.types";
+import { DropDownListType } from "../../../../../types/sorting/dropDownList.type";
 
 function DropDownList({
   options,
   toggle,
   handleSelectedOption,
-}: DropDownListProps) {
+}: DropDownListType) {
   return (
     <div className={styles.dropDown_list}>
       {toggle &&

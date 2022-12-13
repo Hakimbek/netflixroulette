@@ -1,20 +1,20 @@
 import styles from "./addMovieButton.module.css";
-import AddMovieModal from "../../Modal/AddMovieModal/AddMovieModal";
-import { useAppDispatch } from "../../../redux/hooks";
-import { handleAddMovieModalToggle } from "../../../redux/slice/addMovieModalSlice";
+import AddModal from "../../Modal/AddModal";
+import { useState } from "react";
 
 function AddMovieButton() {
-  const dispatch = useAppDispatch();
+  const [toggle, setToggle] = useState(false);
+
+  const handleToggle = () => {
+    setToggle((prev) => !prev);
+  };
 
   return (
     <>
-      <button
-        className={styles.addMovieButton}
-        onClick={() => dispatch(handleAddMovieModalToggle())}
-      >
+      <button className={styles.addMovieButton} onClick={handleToggle}>
         + ADD MOVIE
       </button>
-      <AddMovieModal />
+      <AddModal toggle={toggle} handleCloseButton={handleToggle} />
     </>
   );
 }
