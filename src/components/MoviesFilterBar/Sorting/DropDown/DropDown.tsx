@@ -1,18 +1,23 @@
 import { useState } from "react";
+
+import { SortingOptionsType } from "../../../../types/sortingOptions.type";
 import DropDownHeader from "./DropDownHeader/DropDownHeader";
 import DropDownList from "./DropDownList/DropDownList";
+import { sortingOptions } from "./sortingOptions";
+
 import styles from "./dropDown.module.css";
 
 function DropDown() {
-  const options = ["Title", "Release Date", "Rating", "Runtime"];
   const [toggle, setToggle] = useState(false);
-  const [selectedOption, setSelectedOption] = useState<string>(options[0]);
+  const [selectedOption, setSelectedOption] = useState<SortingOptionsType>(
+    sortingOptions[0]
+  );
 
   const handleToggle = () => {
     setToggle(!toggle);
   };
 
-  const handleSelectedOption = (option: string) => {
+  const handleSelectedOption = (option: SortingOptionsType) => {
     setSelectedOption(option);
     handleToggle();
   };
@@ -22,10 +27,10 @@ function DropDown() {
       <DropDownHeader
         toggle={toggle}
         handleToggle={handleToggle}
-        selectedOption={selectedOption}
+        selectedOption={selectedOption.optionName}
       />
       <DropDownList
-        options={options}
+        options={sortingOptions}
         toggle={toggle}
         handleSelectedOption={handleSelectedOption}
       />

@@ -1,5 +1,8 @@
+@import "../app.module.css";
+
 .footer {
   display: flex;
   justify-content: center;
-  background-color: #424242;
+  flex-shrink: 0;
+  background-color: var(--primary);
 }

@@ -1,20 +1,24 @@
-import styles from "../dropDown.module.css";
+import { SortingOptionsType } from "../../../../../types/sortingOptions.type";
 import DropDownItem from "./DropDownItem";
-import DropDownListProps from "../../../../../types/dropDownList.types";
+
+import styles from "../dropDown.module.css";
+
+type DropDownListPropsType = {
+  options: SortingOptionsType[];
+  toggle: boolean;
+  handleSelectedOption: (option: SortingOptionsType) => void;
+};
 
 function DropDownList({
   options,
   toggle,
   handleSelectedOption,
-}: DropDownListProps) {
+}: DropDownListPropsType) {
   return (
     <div className={styles.dropDown_list}>
       {toggle &&
-        options.map((option) => (
-          <DropDownItem
-            key={Math.random()}
-            handleSelectedOption={handleSelectedOption}
-          >
+        options.map((option, index) => (
+          <DropDownItem key={index} handleSelectedOption={handleSelectedOption}>
             {option}
           </DropDownItem>
         ))}

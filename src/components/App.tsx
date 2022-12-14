@@ -1,14 +1,18 @@
-import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
-import MoviesFilterBar from "./MoviesFilterBar/MoviesFilterBar";
+import Header from "./Header/Header";
 import MovieCards from "./MovieCards/MovieCards";
+import MoviesFilterBar from "./MoviesFilterBar/MoviesFilterBar";
+
+import styles from "./app.module.css";
 
 function App() {
   return (
-    <div className="App">
+    <div className={styles.App}>
       <Header />
-      <MoviesFilterBar />
-      <MovieCards />
+      <div style={{ flex: "1 0 auto" }}>
+        <MoviesFilterBar />
+        <MovieCards />
+      </div>
       <Footer />
     </div>
   );

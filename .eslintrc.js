@@ -11,6 +11,7 @@ module.exports = {
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "plugin:prettier/recommended",
+    "plugin:css-import-order/recommended",
   ],
   overrides: [],
   parser: "@typescript-eslint/parser",
@@ -19,7 +20,14 @@ module.exports = {
     sourceType: "module",
     project: ["./tsconfig.json"],
   },
-  plugins: ["react", "react-hooks", "@typescript-eslint", "prettier"],
+  plugins: [
+    "react",
+    "react-hooks",
+    "@typescript-eslint",
+    "prettier",
+    "simple-import-sort",
+    "css-import-order",
+  ],
   settings: {
     react: {
       version: "detect",
@@ -36,5 +44,6 @@ module.exports = {
     "@typescript-eslint/no-var-requires": "error",
     "@typescript-eslint/ban-ts-comment": "error",
     "no-console": "error",
+    "simple-import-sort/exports": "error",
   },
 };

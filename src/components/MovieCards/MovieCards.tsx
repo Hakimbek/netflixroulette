@@ -1,22 +1,28 @@
 import { useEffect, useState } from "react";
+
+import { MockMoviesArray } from "../../mockData/movies";
+import { MovieType } from "../../types/movie.type";
+import MoviesAmount from "../MoviesAmount/MoviesAmount";
 import MovieCard from "./MovieCard/MovieCard";
-import moviesArray from "../../mockData/movies";
-import { Movie } from "../../types/movieCard.types";
+
 import styles from "./movieCadrds.module.css";
 
 function MovieCards() {
-  const [movies, setMovies] = useState<Movie[] | null>([] as Movie[]);
+  const [movies, setMovies] = useState<MovieType[]>([]);
 
   useEffect(() => {
-    setMovies(moviesArray);
+    setMovies(MockMoviesArray);
   }, []);
 
   return (
-    <div className={styles.movieCards}>
-      {movies?.map((movie) => (
-        <MovieCard key={movie.id} movie={movie} />
-      ))}
-    </div>
+    <>
+      <MoviesAmount moviesAmount={movies.length} />
+      <div className={styles.movieCards}>
+        {movies.map((movie) => (
+          <MovieCard key={movie.id} movie={movie} />
+        ))}
+      </div>
+    </>
   );
 }
 

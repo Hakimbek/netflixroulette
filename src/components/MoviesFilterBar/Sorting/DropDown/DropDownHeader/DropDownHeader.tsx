@@ -1,13 +1,19 @@
-import collapseIconUp from "../../../../../assets/images/collapseIconUp.png";
 import collapseIconDown from "../../../../../assets/images/collapseIconDown.png";
+import collapseIconUp from "../../../../../assets/images/collapseIconUp.png";
+
 import styles from "../dropDown.module.css";
-import DropDownHeaderProps from "../../../../../types/dopDownHeader.types";
+
+type DropDownHeaderPropsType = {
+  toggle: boolean;
+  handleToggle: () => void;
+  selectedOption: string;
+};
 
 function DropDownHeader({
   toggle,
   handleToggle,
   selectedOption,
-}: DropDownHeaderProps) {
+}: DropDownHeaderPropsType) {
   return (
     <div className={styles.dropDown_header} onClick={() => handleToggle()}>
       {selectedOption}

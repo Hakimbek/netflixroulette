@@ -1,14 +1,16 @@
+@import "../../app.module.css";
+
 .sorting {
   width: 100%;
   display: flex;
   justify-content: flex-end;
-  border-bottom: 2px solid #424242;
+  border-bottom: 2px solid var(--primary);
   padding: 10px 0;
   font-size: 25px;
 }
 
 .sorting_text {
   margin: 0 10px;
-  color: white;
+  color: var(--light);
   text-transform: uppercase;
 }

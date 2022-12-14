@@ -1,5 +1,7 @@
+@import "../../app.module.css";
+
 .logo {
-  color: #f65261;
+  color: var(--danger);
   font-size: 32px;
   cursor: pointer;
 }

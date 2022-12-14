@@ -1,0 +1,36 @@
+@import "../../app.module.css";
+
+.btn {
+  width: 180px;
+  height: 50px;
+  margin: 5px;
+  border-radius: 5px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.btn:active {
+  opacity: 0.8;
+}
+
+.btn_primary {
+  border: none;
+  background-color: var(--primary);
+  color: var(--danger);
+}
+
+.btn_dark {
+  border: 1px solid var(--danger);
+  background-color: var(--dark);
+  color: var(--danger);
+}
+
+.btn_danger {
+  border: 1px solid var(--danger);
+  background-color: var(--danger);
+  color: var(--light);
+}

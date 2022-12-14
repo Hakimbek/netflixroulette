@@ -1,7 +1,15 @@
+@import "../../app.module.css";
+
 .movieCard {
   width: 320px;
-  color: #ffffff;
+  color: var(--light);
   cursor: pointer;
+}
+
+.movieCard_imageWrapper {
+  width: 320px;
+  height: 480px;
+  background-color: #424242;
 }
 
 .movieCard_image {
@@ -13,19 +21,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 10px 0;
 }
 
 .movieCard_year {
-  border: 1px solid #979797;
+  width: 80px;
+  border: 1px solid var(--primary);
   border-radius: 5px;
   padding: 5px 20px;
 }
 
 .movieCard_name {
-  margin: 0;
+  width: 180px;
   font-size: 20px;
-}
-
-.movieCard_genre {
-  margin-top: 0;
 }
