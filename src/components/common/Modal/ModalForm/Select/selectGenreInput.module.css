@@ -1,3 +1,5 @@
+@import "../../../../app.module.css";
+
 .selectedGenre {
   display: flex;
   align-items: center;
@@ -7,8 +9,8 @@
   padding-left: 10px;
   padding-right: 2px;
   border-radius: 5px;
-  background-color: #323232;
-  color: white;
+  background-color: var(--primary);
+  color: var(--light);
   font-size: 18px;
   text-transform: uppercase;
   cursor: pointer;
@@ -19,8 +21,8 @@
   width: 515px;
   margin-left: 10px;
   border-radius: 5px;
-  background: #232323;
-  color: white;
+  background: var(--dark);
+  color: var(--light);
   font-size: 18px;
 }
 
@@ -32,11 +34,5 @@
 }
 
 .genreOption:hover {
-  background-color: #f65261;
-}
-
-.modalBody_inputLabel {
-  margin: 0 0 0 10px;
-  color: #f65261;
-  font-size: 16px;
+  background-color: var(--danger);
 }

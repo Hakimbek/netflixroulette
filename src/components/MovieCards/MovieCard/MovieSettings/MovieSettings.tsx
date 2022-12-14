@@ -1,11 +1,11 @@
 import { useState } from "react";
+
+import DeleteModal from "../../../Modal/DeleteModal";
+import Modal from "../../../Modal/Modal";
 import MovieSettingsButton from "./MovieSettingsButton/MovieSettingsButton";
 import MovieSettingsProperty from "./MovieSettingsProperty/MovieSettingsProperty";
-import { MovieSettingsType } from "../../../../types/movie/movieSettings.type";
-import DeleteModal from "../../../Modal/DeleteModal";
-import EditModal from "../../../Modal/EditModal";
 
-function MovieSettings({ movieId }: MovieSettingsType) {
+function MovieSettings() {
   const [movieSettingToggle, setMovieSettingToggle] = useState(true);
   const [deleteModalToggle, setDeleteModalToggle] = useState(false);
   const [editModalToggle, setEditModalToggle] = useState(false);
@@ -42,12 +42,11 @@ function MovieSettings({ movieId }: MovieSettingsType) {
       <DeleteModal
         toggle={deleteModalToggle}
         handleCloseButton={closeDeleteModal}
-        movieId={movieId}
       />
-      <EditModal
+      <Modal
+        title={"Edit movie"}
         toggle={editModalToggle}
         handleCloseButton={closeEditModal}
-        movieId={movieId}
       />
     </>
   );

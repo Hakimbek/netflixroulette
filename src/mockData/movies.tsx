@@ -1,10 +1,10 @@
+import { MovieType } from "../types/movie.type";
 import avengers from "./images/avengers.png";
-import killBill from "./images/killBill.png";
-import reservoirDogs from "./images/reservoirDogs.png";
-import pulpFiction from "./images/pulpFiction.png";
 import bohemianRhapsody from "./images/bohemianRhapsody.png";
 import inception from "./images/inception.png";
-import { MovieType } from "../types/movie/movie.type";
+import killBill from "./images/killBill.png";
+import pulpFiction from "./images/pulpFiction.png";
+import reservoirDogs from "./images/reservoirDogs.png";
 
 export const MockMoviesArray: MovieType[] = [
   {

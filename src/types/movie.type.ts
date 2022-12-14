@@ -8,7 +8,3 @@ export type MovieType = {
   rating: string;
   overview: string;
 };
-
-export type MoviePropsType = {
-  movie: MovieType;
-};

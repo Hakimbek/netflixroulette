@@ -1,11 +1,16 @@
-import styles from "./movieCard.module.css";
+import { MovieType } from "../../../types/movie.type";
 import MovieSettings from "./MovieSettings/MovieSettings";
-import { MoviePropsType } from "../../../types/movie/movie.type";
+
+import styles from "./movieCard.module.css";
+
+type MoviePropsType = {
+  movie: MovieType;
+};
 
 function MovieCard({ movie }: MoviePropsType) {
   return (
     <div className={styles.movieCard}>
-      <MovieSettings movieId={movie.id} />
+      <MovieSettings />
       <div className={styles.movieCard_imageWrapper}>
         <img className={styles.movieCard_image} src={movie.url} alt="Url" />
       </div>

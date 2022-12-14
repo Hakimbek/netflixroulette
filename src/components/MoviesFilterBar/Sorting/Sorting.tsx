@@ -1,5 +1,6 @@
-import styles from "./sorting.module.css";
 import DropDown from "./DropDown/DropDown";
+
+import styles from "./sorting.module.css";
 
 function Sorting() {
   return (

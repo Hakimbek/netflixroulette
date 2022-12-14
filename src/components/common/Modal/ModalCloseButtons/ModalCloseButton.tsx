@@ -1,8 +1,12 @@
-import styles from "./modalButtons.module.css";
 import closeIcon from "../../../../assets/images/closeIcon.png";
-import { HandleButtonType } from "../../../../types/modal/handleButton.type";
 
-function ModalCloseButton({ handleButton }: HandleButtonType) {
+import styles from "./modalCloseButtons.module.css";
+
+type CloseButtonPropsType = {
+  handleButton: () => void;
+};
+
+function ModalCloseButton({ handleButton }: CloseButtonPropsType) {
   return (
     <button onClick={() => handleButton()} className={styles.modal_closeButton}>
       <img src={closeIcon} alt="close" />

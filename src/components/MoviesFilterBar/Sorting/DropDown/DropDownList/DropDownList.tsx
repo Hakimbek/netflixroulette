@@ -1,12 +1,19 @@
-import styles from "../dropDown.module.css";
+import { SortingOptionsType } from "../../../../../types/sortingOptions.type";
 import DropDownItem from "./DropDownItem";
-import { DropDownListType } from "../../../../../types/sorting/dropDownList.type";
+
+import styles from "../dropDown.module.css";
+
+type DropDownListPropsType = {
+  options: SortingOptionsType[];
+  toggle: boolean;
+  handleSelectedOption: (option: SortingOptionsType) => void;
+};
 
 function DropDownList({
   options,
   toggle,
   handleSelectedOption,
-}: DropDownListType) {
+}: DropDownListPropsType) {
   return (
     <div className={styles.dropDown_list}>
       {toggle &&

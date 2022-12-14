@@ -1,5 +1,7 @@
-.moviesAmount {
+@import "../app.module.css";
+
+.movies_amount {
   margin: 30px 50px;
-  color: white;
+  color: var(--light);
   font-size: 20px;
 }

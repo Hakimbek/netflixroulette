@@ -1,6 +1,12 @@
-import styles from "../movieSettings.module.css";
 import closeIcon from "../../../../../assets/images/closeIcon.png";
-import { MovieSettingsPropertyType } from "../../../../../types/movie/movieSettings.type";
+
+import styles from "../movieSettings.module.css";
+
+type MovieSettingsPropertyType = {
+  handleMovieSettingToggle: () => void;
+  openDeleteModal: () => void;
+  openEditModal: () => void;
+};
 
 function MovieSettingsProperty({
   handleMovieSettingToggle,

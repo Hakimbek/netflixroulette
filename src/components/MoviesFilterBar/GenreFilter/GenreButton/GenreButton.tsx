@@ -1,12 +1,18 @@
-import styles from "../genre.module.css";
-import { GenreButtonType } from "../../../../types/sorting/genreButton.type";
 import React from "react";
 
-function GenreButton({ children, active, setActive }: GenreButtonType) {
+import styles from "../genre.module.css";
+
+type GenreButtonPropsType = {
+  children: string;
+  active: string;
+  setActive: (e: string) => void;
+};
+
+function GenreButton({ children, active, setActive }: GenreButtonPropsType) {
   const style: React.CSSProperties =
     active === children
       ? {
-          borderBottom: "2px solid red",
+          borderBottom: "2px solid var(--danger)",
         }
       : {};
 

@@ -1,0 +1,12 @@
+:root {
+  --danger: #f65261;
+  --dark: #232323;
+  --primary: #606060;
+  --light: white;
+}
+
+.App {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}

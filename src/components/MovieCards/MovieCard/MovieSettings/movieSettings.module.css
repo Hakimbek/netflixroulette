@@ -1,3 +1,5 @@
+@import "../../../app.module.css";
+
 .movieSettingButton {
   position: absolute;
   display: flex;
@@ -8,7 +10,7 @@
   padding: 10px;
   border: none;
   border-radius: 50px;
-  background-color: #232323;
+  background-color: var(--dark);
   cursor: pointer;
 }
 
@@ -20,7 +22,7 @@
   width: 200px;
   margin: 10px 0 0 100px;
   padding: 5px;
-  background-color: #232323;
+  background-color: var(--dark);
 }
 
 .movieSetting_closeButton {
@@ -34,12 +36,12 @@
   padding: 5px;
   border: none;
   background-color: transparent;
-  color: white;
+  color: var(--light);
   text-align: start;
   font-size: 16px;
   cursor: pointer;
 }
 
 .movieSetting_button:hover {
-  background-color: #f65261;
+  background-color: var(--danger);
 }

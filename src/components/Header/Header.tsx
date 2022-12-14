@@ -1,16 +1,33 @@
-import SearchWrapper from "./Search/SearchWrapper";
+import { useState } from "react";
+
+import Button from "../common/Button/Button";
 import Logo from "../common/Logo/Logo";
-import AddMovieButton from "./AddMovieButton/AddMovieButton";
+import Modal from "../Modal/Modal";
+import Search from "./Search/Search";
+
 import styles from "./header.module.css";
 
 function Header() {
+  const [toggle, setToggle] = useState(false);
+
+  const handleToggle = () => {
+    setToggle((prev) => !prev);
+  };
+
   return (
     <div className={styles.header}>
-      <div className={styles.header_logoAddMovieButton_wrapper}>
+      <div className={styles.header_wrapper}>
         <Logo />
-        <AddMovieButton />
+        <Button onClick={handleToggle} btnType={"btn_primary"}>
+          + Add movie
+        </Button>
       </div>
-      <SearchWrapper />
+      <Search />
+      <Modal
+        title={"Add movie"}
+        toggle={toggle}
+        handleCloseButton={handleToggle}
+      />
     </div>
   );
 }

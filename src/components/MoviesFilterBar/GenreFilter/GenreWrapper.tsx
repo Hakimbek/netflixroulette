@@ -1,6 +1,7 @@
-import GenreButton from "./GenreButton/GenreButton";
-import styles from "./genre.module.css";
 import { useState } from "react";
+import GenreButton from "./GenreButton/GenreButton";
+
+import styles from "./genre.module.css";
 
 function GenreWrapper() {
   const [active, setActive] = useState("All");

@@ -1,55 +1,24 @@
 import { useState } from "react";
-import styles from "./selectGenreInput.module.css";
+
+import { options } from "./genreOptions";
 import ModalOption from "./ModalOption";
-import { ModalSelectType } from "../../../../../types/modal/modalSelect.type";
 
-function ModalSelect({ genre, setGenre }: ModalSelectType) {
+import styles from "./selectGenreInput.module.css";
+
+function ModalSelect() {
   const [selectToggle, setSelectToggle] = useState(false);
-
-  const [documentary, setDocumentary] = useState(false);
-  const [horror, setHorror] = useState(false);
-  const [comedy, setComedy] = useState(false);
-  const [crime, setCrime] = useState(false);
 
   return (
     <div>
-      <label className={styles.modalBody_inputLabel}>Genre</label>
       <div
         className={styles.selectedGenre}
         onClick={() => setSelectToggle(!selectToggle)}
-      >
-        {genre.map((value) => value + " ")}
-      </div>
+      ></div>
       {selectToggle && (
         <div className={styles.genreOptionsList}>
-          <ModalOption
-            optionName={"Documentary"}
-            genre={genre}
-            setGenre={setGenre}
-            checked={documentary}
-            setChecked={setDocumentary}
-          />
-          <ModalOption
-            optionName={"Crime"}
-            genre={genre}
-            setGenre={setGenre}
-            checked={crime}
-            setChecked={setCrime}
-          />
-          <ModalOption
-            optionName={"Horror"}
-            genre={genre}
-            setGenre={setGenre}
-            checked={horror}
-            setChecked={setHorror}
-          />
-          <ModalOption
-            optionName={"Comedy"}
-            genre={genre}
-            setGenre={setGenre}
-            checked={comedy}
-            setChecked={setComedy}
-          />
+          {options.map((option, index) => (
+            <ModalOption key={index} optionName={option} />
+          ))}
         </div>
       )}
     </div>

@@ -1,3 +1,5 @@
+@import "../../app.module.css";
+
 .genreWrapper {
   display: flex;
   flex-wrap: nowrap;
@@ -7,14 +9,14 @@
   height: 50px;
   padding: 0 15px;
   border: none;
-  border-bottom: 2px solid #424242;
+  border-bottom: 2px solid var(--primary);
   background-color: transparent;
-  color: white;
+  color: var(--light);
   font-size: 20px;
   text-transform: uppercase;
   cursor: pointer;
 }
 
 .genreButton:hover {
-  border-bottom: 2px solid red;
+  border-bottom: 2px solid var(--danger);
 }

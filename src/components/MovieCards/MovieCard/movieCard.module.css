@@ -1,6 +1,8 @@
+@import "../../app.module.css";
+
 .movieCard {
   width: 320px;
-  color: #ffffff;
+  color: var(--light);
   cursor: pointer;
 }
 
@@ -24,7 +26,7 @@
 
 .movieCard_year {
   width: 80px;
-  border: 1px solid #979797;
+  border: 1px solid var(--primary);
   border-radius: 5px;
   padding: 5px 20px;
 }
