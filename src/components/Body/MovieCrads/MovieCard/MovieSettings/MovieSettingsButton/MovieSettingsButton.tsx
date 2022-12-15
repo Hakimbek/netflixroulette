@@ -1,4 +1,4 @@
-import settingIcon from "../../../../../assets/images/settingIcon.png";
+import settingIcon from "../../../../../../assets/images/settingIcon.png";
 
 import styles from "../movieSettings.module.css";
 

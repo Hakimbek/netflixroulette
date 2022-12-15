@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 
 import App from "./components/App";
 import ErrorBoundary from "./components/ErrorBoundary";
+import { MoviesProvider } from "./stateManagement/store";
 
 import "./index.css";
 
@@ -12,7 +13,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <ErrorBoundary>
-      <App />
+      <MoviesProvider>
+        <App />
+      </MoviesProvider>
     </ErrorBoundary>
   </React.StrictMode>
 );

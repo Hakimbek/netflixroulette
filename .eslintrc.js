@@ -44,6 +44,6 @@ module.exports = {
     "@typescript-eslint/no-var-requires": "error",
     "@typescript-eslint/ban-ts-comment": "error",
     "no-console": "error",
-    "simple-import-sort/exports": "error",
+    "simple-import-sort/exports": "error"
   },
 };

@@ -1,5 +1,5 @@
-import collapseIconDown from "../../../../../assets/images/collapseIconDown.png";
-import collapseIconUp from "../../../../../assets/images/collapseIconUp.png";
+import collapseIconDown from "../../../../../../assets/images/collapseIconDown.png";
+import collapseIconUp from "../../../../../../assets/images/collapseIconUp.png";
 
 import styles from "../dropDown.module.css";
 
