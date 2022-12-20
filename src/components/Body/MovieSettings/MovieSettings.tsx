@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-import DeleteModal from "../../../Modal/DeleteModal";
-import Modal from "../../../Modal/Modal";
+import DeleteModal from "../../Modal/DeleteModal";
+import Modal from "../../Modal/Modal";
 import MovieSettingsButton from "./MovieSettingsButton/MovieSettingsButton";
 import MovieSettingsProperty from "./MovieSettingsProperty/MovieSettingsProperty";
 

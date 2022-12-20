@@ -1,4 +1,4 @@
-import { SortingOptionsType } from "../../../../../types/sortingOptions.type";
+import { SortingOptionsType } from "../../../../../../types/sortingOptions.type";
 
 import styles from "../dropDown.module.css";
 

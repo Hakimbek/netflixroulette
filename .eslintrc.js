@@ -25,7 +25,6 @@ module.exports = {
     "react-hooks",
     "@typescript-eslint",
     "prettier",
-    "simple-import-sort",
     "css-import-order",
   ],
   settings: {
@@ -35,6 +34,8 @@ module.exports = {
   },
   ignorePatterns: ["webpack.common.js"],
   rules: {
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
     "prettier/prettier": ["error", { endOfLine: "auto" }],
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
@@ -44,6 +45,5 @@ module.exports = {
     "@typescript-eslint/no-var-requires": "error",
     "@typescript-eslint/ban-ts-comment": "error",
     "no-console": "error",
-    "simple-import-sort/exports": "error",
   },
 };

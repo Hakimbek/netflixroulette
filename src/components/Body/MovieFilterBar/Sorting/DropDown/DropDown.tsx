@@ -1,6 +1,7 @@
 import { useState } from "react";
 
-import { SortingOptionsType } from "../../../../types/sortingOptions.type";
+import { SortingOptionsType } from "../../../../../types/sortingOptions.type";
+
 import DropDownHeader from "./DropDownHeader/DropDownHeader";
 import DropDownList from "./DropDownList/DropDownList";
 import { sortingOptions } from "./sortingOptions";

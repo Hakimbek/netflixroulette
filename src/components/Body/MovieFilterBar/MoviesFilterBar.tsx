@@ -1,4 +1,4 @@
-import GenreWrapper from "./GenreFilter/GenreWrapper";
+import GenreWrapper from "./GeneralFilter/GenreWrapper";
 import Sorting from "./Sorting/Sorting";
 
 import styles from "./moviesFilterBar.module.css";

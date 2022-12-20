@@ -13,7 +13,7 @@ export const MockMoviesArray: MovieType[] = [
     title: "Avengers: War of Infinity",
     genres: ["Action", "Adventure"],
     release: "2004",
-    runtime: "125",
+    runtime: "50",
     rating: "10",
     overview: "Overview",
   },
