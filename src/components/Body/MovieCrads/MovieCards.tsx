@@ -9,11 +9,11 @@ import MovieCard from "./MovieCard/MovieCard";
 import styles from "./movieCadrds.module.css";
 
 function MovieCards() {
-  const { moviesArray, load } = useMoviesContext();
+  const { moviesArray, loadMovies } = useMoviesContext();
 
   useEffect(() => {
-    load(MockMoviesArray);
-  }, [load]);
+    loadMovies(MockMoviesArray);
+  }, [loadMovies]);
 
   return (
     <>

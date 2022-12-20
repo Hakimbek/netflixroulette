@@ -4,19 +4,19 @@ import { MovieType } from "../types/movie.type";
 
 const useMovies = (initial: MovieType[] = []) => {
   const [moviesArray, setMoviesArray] = useState<MovieType[]>(initial);
-  const [movie, setMovie] = useState<MovieType>();
-  const [toggle, setToggle] = useState<boolean>(true);
+  const [selectedMovie, setSelectedMovie] = useState<MovieType>();
+  const [movieDetailsIsOpen, setMovieDetailsIsOpen] = useState<boolean>(true);
 
   return {
     moviesArray,
-    movie,
-    toggle,
-    load: (newMoviesArray: MovieType[]) => setMoviesArray(newMoviesArray),
-    clickMovie: (movie: MovieType) => {
-      setMovie(movie);
-      setToggle(false);
+    selectedMovie,
+    movieDetailsIsOpen,
+    loadMovies: (newMoviesArray: MovieType[]) => setMoviesArray(newMoviesArray),
+    selectMovie: (movie: MovieType) => {
+      setSelectedMovie(movie);
+      setMovieDetailsIsOpen(false);
     },
-    handleToggle: () => setToggle(true),
+    closeMovieDetails: () => setMovieDetailsIsOpen(true),
   };
 };
 

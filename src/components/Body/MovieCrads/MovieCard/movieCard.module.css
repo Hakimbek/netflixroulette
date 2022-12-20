@@ -6,6 +6,10 @@
   cursor: pointer;
 }
 
+.movieCard:hover .movieCard_settings {
+  visibility: visible;
+}
+
 .movieCard_imageWrapper {
   width: 320px;
   height: 480px;
@@ -25,7 +29,10 @@
 }
 
 .movieCard_year {
-  width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
   border: 1px solid var(--primary);
   border-radius: 5px;
   padding: 5px 20px;
@@ -33,5 +40,17 @@
 
 .movieCard_name {
   width: 180px;
-  font-size: 20px;
+  font-size: 18px;
+}
+
+.movieCard_genres {
+  display: flex;
+}
+
+.movieCard_genre {
+  margin-right: 5px;
+}
+
+.movieCard_settings {
+  visibility: hidden;
 }

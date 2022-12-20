@@ -1,4 +1,4 @@
-import closeIcon from "../../../../../../assets/images/closeIcon.png";
+import closeIcon from "../../../../assets/images/closeIcon.png";
 
 import styles from "../movieSettings.module.css";
 

@@ -25,7 +25,6 @@ module.exports = {
     "react-hooks",
     "@typescript-eslint",
     "prettier",
-    "simple-import-sort",
     "css-import-order",
   ],
   settings: {
@@ -46,6 +45,5 @@ module.exports = {
     "@typescript-eslint/no-var-requires": "error",
     "@typescript-eslint/ban-ts-comment": "error",
     "no-console": "error",
-    "simple-import-sort/exports": "error"
   },
 };

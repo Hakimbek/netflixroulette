@@ -1,7 +1,7 @@
 import { useMoviesContext } from "../../../../stateManagement/store";
 import { MovieType } from "../../../../types/movie.type";
 
-import MovieSettings from "./MovieSettings/MovieSettings";
+import MovieSettings from "../../MovieSettings/MovieSettings";
 
 import styles from "./movieCard.module.css";
 
@@ -10,14 +10,16 @@ type MoviePropsType = {
 };
 
 function MovieCard({ movie }: MoviePropsType) {
-  const { clickMovie } = useMoviesContext();
+  const { selectMovie } = useMoviesContext();
 
   return (
     <div className={styles.movieCard}>
-      <MovieSettings />
+      <div className={styles.movieCard_settings}>
+        <MovieSettings />
+      </div>
       <div
         className={styles.movieCard_imageWrapper}
-        onClick={() => clickMovie(movie)}
+        onClick={() => selectMovie(movie)}
       >
         <img className={styles.movieCard_image} src={movie.url} alt="Url" />
       </div>
@@ -25,7 +27,13 @@ function MovieCard({ movie }: MoviePropsType) {
         <div className={styles.movieCard_name}>{movie.title}</div>
         <div className={styles.movieCard_year}>{movie.release}</div>
       </div>
-      <p>{movie.genres}</p>
+      <div className={styles.movieCard_genres}>
+        {movie.genres.map((genre, index) => (
+          <p className={styles.movieCard_genre} key={index}>
+            {genre}
+          </p>
+        ))}
+      </div>
     </div>
   );
 }

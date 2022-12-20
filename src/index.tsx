@@ -5,6 +5,8 @@ import App from "./components/App";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { MoviesProvider } from "./stateManagement/store";
 
+import "@fontsource/montserrat";
+
 import "./index.css";
 
 const root = ReactDOM.createRoot(
