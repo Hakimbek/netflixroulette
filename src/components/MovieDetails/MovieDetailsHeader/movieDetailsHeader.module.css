@@ -1,0 +1,12 @@
+.movieDetails_headerWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.magnifier {
+  padding: 20px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}

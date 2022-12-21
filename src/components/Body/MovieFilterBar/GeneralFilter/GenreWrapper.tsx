@@ -1,13 +1,21 @@
 import { useState } from "react";
 
 import GenreButton from "./GenreButton/GenreButton";
+import { useAppDispatch } from "../../../../redux/hooks";
+import { setFilterBy } from "../../../../redux/movieSlice";
 
 import styles from "./genre.module.css";
 
 function GenreWrapper() {
+  const dispatch = useAppDispatch();
   const [active, setActive] = useState("All");
 
   const handleGenreButton = (child: string) => {
+    let filter = child;
+    if (child === "All") {
+      filter = "";
+    }
+    dispatch(setFilterBy(filter));
     setActive(child);
   };
 

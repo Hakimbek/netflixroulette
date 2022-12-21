@@ -1,0 +1,67 @@
+@import "../../app.module.css";
+
+.movieDetails_bodyWrapper {
+  display: flex;
+}
+
+.movieDetails_leftCol {
+  width: 320px;
+  height: 480px;
+  background-color: var(--primary);
+}
+
+.movieDetails_image {
+  width: 320px;
+  height: 480px;
+}
+
+.movieDetails_rightCol {
+  width: 800px;
+  margin-left: 50px;
+}
+
+.movieDetails_title {
+  color: var(--light);
+  font-size: 40px;
+}
+
+.movieDetails_rating {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 50px;
+  border: 1px solid var(--light);
+  border-radius: 50%;
+  color: var(--light);
+  font-size: 20px;
+}
+
+.movieDetails_genres {
+  display: flex;
+  margin: 20px 0;
+  color: var(--light);
+  font-size: 18px;
+}
+
+.movieDetails_genre {
+  margin: 5px;
+}
+
+.movieDetails_release {
+  color: var(--danger);
+  font-size: 40px;
+}
+
+.movieDetails_runtime {
+  margin-left: 50px;
+  color: var(--danger);
+  font-size: 40px;
+}
+
+.movieDetails_overview {
+  margin: 20px 0;
+  color: var(--light);
+  font-size: 32px;
+}
