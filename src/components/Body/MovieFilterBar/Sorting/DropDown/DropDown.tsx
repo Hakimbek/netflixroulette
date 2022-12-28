@@ -5,10 +5,13 @@ import { SortingOptionsType } from "../../../../../types/sortingOptions.type";
 import DropDownHeader from "./DropDownHeader/DropDownHeader";
 import DropDownList from "./DropDownList/DropDownList";
 import { sortingOptions } from "./sortingOptions";
+import { useAppDispatch } from "../../../../../redux/hooks";
+import { setSortBy } from "../../../../../redux/movieSlice";
 
 import styles from "./dropDown.module.css";
 
 function DropDown() {
+  const dispatch = useAppDispatch();
   const [toggle, setToggle] = useState(false);
   const [selectedOption, setSelectedOption] = useState<SortingOptionsType>(
     sortingOptions[0]
@@ -19,6 +22,7 @@ function DropDown() {
   };
 
   const handleSelectedOption = (option: SortingOptionsType) => {
+    dispatch(setSortBy(option.sortBy));
     setSelectedOption(option);
     handleToggle();
   };

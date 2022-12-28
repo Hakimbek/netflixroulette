@@ -3,7 +3,8 @@ import ReactDOM from "react-dom/client";
 
 import App from "./components/App";
 import ErrorBoundary from "./components/ErrorBoundary";
-import { MoviesProvider } from "./stateManagement/store";
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
 
 import "@fontsource/montserrat";
 
@@ -15,9 +16,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <ErrorBoundary>
-      <MoviesProvider>
+      <Provider store={store}>
         <App />
-      </MoviesProvider>
+      </Provider>
     </ErrorBoundary>
   </React.StrictMode>
 );

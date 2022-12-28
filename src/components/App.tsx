@@ -1,16 +1,18 @@
-import { useMoviesContext } from "../stateManagement/store";
 import Body from "./Body/Body";
 import Footer from "./Footer/Footer";
 import Header from "./Header/Header";
 import MovieDetails from "./MovieDetails/MovieDetails";
+import { useAppSelector } from "../redux/hooks";
+import { selectMovie } from "../redux/movieSlice";
 
 import styles from "./app.module.css";
+
 function App() {
-  const { movieDetailsIsOpen } = useMoviesContext();
+  const movieIsSelected = useAppSelector(selectMovie);
 
   return (
     <div className={styles.App}>
-      {movieDetailsIsOpen ? <Header /> : <MovieDetails />}
+      {movieIsSelected ? <MovieDetails /> : <Header />}
       <Body />
       <Footer />
     </div>

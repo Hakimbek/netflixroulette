@@ -1,7 +1,8 @@
-import { useMoviesContext } from "../../../../stateManagement/store";
 import { MovieType } from "../../../../types/movie.type";
-
+import { handleMovieClick } from "../../../../redux/movieSlice";
 import MovieSettings from "../../MovieSettings/MovieSettings";
+import { useAppDispatch } from "../../../../redux/hooks";
+import Poster from "../../../common/Poster/Poster";
 
 import styles from "./movieCard.module.css";
 
@@ -10,22 +11,21 @@ type MoviePropsType = {
 };
 
 function MovieCard({ movie }: MoviePropsType) {
-  const { selectMovie } = useMoviesContext();
+  const dispatch = useAppDispatch();
 
   return (
     <div className={styles.movieCard}>
       <div className={styles.movieCard_settings}>
         <MovieSettings />
       </div>
-      <div
-        className={styles.movieCard_imageWrapper}
-        onClick={() => selectMovie(movie)}
-      >
-        <img className={styles.movieCard_image} src={movie.url} alt="Url" />
+      <div onClick={() => dispatch(handleMovieClick(movie))}>
+        <Poster posterPath={movie.poster_path} movieTitle={movie.title} />
       </div>
       <div className={styles.movieCard_title}>
         <div className={styles.movieCard_name}>{movie.title}</div>
-        <div className={styles.movieCard_year}>{movie.release}</div>
+        <div className={styles.movieCard_year}>
+          {new Date(movie.release_date).getFullYear()}
+        </div>
       </div>
       <div className={styles.movieCard_genres}>
         {movie.genres.map((genre, index) => (
