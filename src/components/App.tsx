@@ -3,16 +3,16 @@ import Footer from "./Footer/Footer";
 import Header from "./Header/Header";
 import MovieDetails from "./MovieDetails/MovieDetails";
 import { useAppSelector } from "../redux/hooks";
-import { selectMovieDetailsStatus } from "../redux/movieDetailsSlice";
+import { selectMovie } from "../redux/movieSlice";
 
 import styles from "./app.module.css";
 
 function App() {
-  const movieDetailsStatus = useAppSelector(selectMovieDetailsStatus);
+  const movieIsSelected = useAppSelector(selectMovie);
 
   return (
     <div className={styles.App}>
-      {movieDetailsStatus ? <MovieDetails /> : <Header />}
+      {movieIsSelected ? <MovieDetails /> : <Header />}
       <Body />
       <Footer />
     </div>

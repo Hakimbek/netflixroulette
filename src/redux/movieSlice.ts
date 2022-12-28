@@ -1,27 +1,36 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { SortingOptionsType } from "../types/sortingOptions.type";
 import { RootState } from "./store";
+import { MovieType } from "../types/movie.type";
 
-const initialState = {
-  movieId: 0,
-  sortBy: "",
-  sortOrder: "",
-  filterBy: "",
+type InitialStateType = {
+  movie: MovieType | boolean;
+  sortBy: string;
+  sortOrder: string;
+  filterBy: string[];
+};
+
+const initialState: InitialStateType = {
+  movie: false,
+  sortBy: "release_date",
+  sortOrder: "desc",
+  filterBy: [],
 };
 
 const movieSlice = createSlice({
   name: "movie",
   initialState,
   reducers: {
-    setSortBy(state, action: { payload: SortingOptionsType }) {
-      state.sortBy = action.payload.sortBy;
-      state.sortOrder = action.payload.sortOrder;
+    setSortBy(state, action: { payload: string }) {
+      state.sortBy = action.payload;
     },
-    setFilterBy(state, action: { payload: string }) {
+    setSortOrder(state, action: { payload: string }) {
+      state.sortOrder = action.payload;
+    },
+    setFilterBy(state, action: { payload: string[] }) {
       state.filterBy = action.payload;
     },
-    selectMovie(state, action: { payload: number }) {
-      state.movieId = action.payload;
+    handleMovieClick(state, action: { payload: MovieType | false }) {
+      state.movie = action.payload;
     },
   },
 });
@@ -29,8 +38,9 @@ const movieSlice = createSlice({
 export const selectSortBy = (state: RootState) => state.movie.sortBy;
 export const selectSortOrder = (state: RootState) => state.movie.sortOrder;
 export const selectFilterBy = (state: RootState) => state.movie.filterBy;
-export const selectMovieId = (state: RootState) => state.movie.movieId;
+export const selectMovie = (state: RootState) => state.movie.movie;
 
-export const { setSortBy, setFilterBy, selectMovie } = movieSlice.actions;
+export const { setSortBy, setFilterBy, handleMovieClick, setSortOrder } =
+  movieSlice.actions;
 
 export default movieSlice.reducer;

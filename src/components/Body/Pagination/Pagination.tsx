@@ -1,7 +1,11 @@
-import { useState } from "react";
 import Button from "../../common/Button/Button";
-import { useAppDispatch } from "../../../redux/hooks";
-import { prev, next } from "../../../redux/paginationSlice";
+import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
+import {
+  prev,
+  next,
+  selectPage,
+  setPage,
+} from "../../../redux/paginationSlice";
 
 import styles from "./pagination.module.css";
 
@@ -11,21 +15,20 @@ type PaginationPropsType = {
 
 function Pagination({ total }: PaginationPropsType) {
   const dispatch = useAppDispatch();
+  const page = useAppSelector(selectPage);
   const minPage = 1;
   const maxPage = Math.ceil(total / 21);
 
-  const [page, setPage] = useState(1);
-
   const handlePrev = () => {
-    if (page !== minPage) {
-      setPage((prev) => prev - 1);
+    if (page !== minPage && total !== 0) {
+      dispatch(setPage(page - 1));
       dispatch(prev());
     }
   };
 
   const handleNext = () => {
-    if (page !== maxPage) {
-      setPage((prev) => prev + 1);
+    if (page !== maxPage && total !== 0) {
+      dispatch(setPage(page + 1));
       dispatch(next());
     }
   };

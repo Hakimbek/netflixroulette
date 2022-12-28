@@ -10,17 +10,6 @@
   visibility: visible;
 }
 
-.movieCard_imageWrapper {
-  width: 320px;
-  height: 480px;
-  background-color: #424242;
-}
-
-.movieCard_image {
-  width: 320px;
-  height: 480px;
-}
-
 .movieCard_title {
   display: flex;
   justify-content: space-between;

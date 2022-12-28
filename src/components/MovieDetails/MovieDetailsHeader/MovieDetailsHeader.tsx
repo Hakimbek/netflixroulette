@@ -1,5 +1,5 @@
 import Logo from "../../common/Logo/Logo";
-import { closeMovieDetails } from "../../../redux/movieDetailsSlice";
+import { handleMovieClick } from "../../../redux/movieSlice";
 import magnifierIcon from "../../../assets/images/magnifierIcon.png";
 
 import { useAppDispatch } from "../../../redux/hooks";
@@ -13,7 +13,7 @@ function MovieDetailsHeader() {
     <div className={styles.movieDetails_headerWrapper}>
       <Logo />
       <button
-        onClick={() => dispatch(closeMovieDetails())}
+        onClick={() => dispatch(handleMovieClick(false))}
         className={styles.magnifier}
       >
         <img src={magnifierIcon} alt="Magnifier" />

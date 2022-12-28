@@ -22,7 +22,7 @@ function DropDown() {
   };
 
   const handleSelectedOption = (option: SortingOptionsType) => {
-    dispatch(setSortBy(option));
+    dispatch(setSortBy(option.sortBy));
     setSelectedOption(option);
     handleToggle();
   };

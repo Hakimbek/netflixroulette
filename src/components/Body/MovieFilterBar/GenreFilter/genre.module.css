@@ -16,7 +16,3 @@
   text-transform: uppercase;
   cursor: pointer;
 }
-
-.genreButton:hover {
-  border-bottom: 2px solid var(--danger);
-}

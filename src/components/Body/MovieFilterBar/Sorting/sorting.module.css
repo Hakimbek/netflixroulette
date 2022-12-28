@@ -10,7 +10,20 @@
 }
 
 .sorting_text {
+  display: flex;
+  align-items: center;
   margin: 0 10px;
   color: var(--light);
   text-transform: uppercase;
+}
+
+.sort_order {
+  width: 45px;
+  height: 25px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--danger);
+  color: var(--light);
+  cursor: pointer;
 }

@@ -10,13 +10,14 @@ import {
 import { selectOffset } from "../../../redux/paginationSlice";
 import { useAppSelector } from "../../../redux/hooks";
 import Pagination from "../Pagination/Pagination";
+import Error from "../../common/Error/Error";
 
 import styles from "./movieCadrds.module.css";
 
 function MovieCards() {
   const sortBy = useAppSelector(selectSortBy);
   const sortOrder = useAppSelector(selectSortOrder);
-  const filterBy = useAppSelector(selectFilterBy);
+  const filterBy = useAppSelector(selectFilterBy).join("%2C%20");
   const offset = useAppSelector(selectOffset);
   const queryParam = { sortBy, sortOrder, filterBy, offset };
   const {
@@ -24,7 +25,6 @@ function MovieCards() {
     isLoading,
     isSuccess,
     isError,
-    error,
   } = useGetMoviesQuery(queryParam);
 
   let content;
@@ -36,7 +36,7 @@ function MovieCards() {
       <MovieCard key={movie.id} movie={movie} />
     ));
   } else if (isError) {
-    content = <div>{error.toString()}</div>;
+    content = <Error>Something went wrong.</Error>;
   }
 
   return (
