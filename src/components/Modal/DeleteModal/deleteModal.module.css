@@ -1,0 +1,19 @@
+.delete_modal {
+  position: fixed;
+  z-index: 3;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 400px;
+  height: 200px;
+  margin: auto;
+  padding: 20px;
+  background-color: var(--dark);
+}
+
+.delete_text {
+  margin: 20px;
+  color: var(--light);
+  font-size: 20px;
+}

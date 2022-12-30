@@ -1,13 +1,12 @@
 import { useAppSelector } from "../../../redux/hooks";
 import { selectMovie } from "../../../redux/movieSlice";
 import Poster from "../../common/Poster/Poster";
-import { MovieType } from "../../../types/movie.type";
 import { getRuntime } from "../../../utils/getRuntime";
 
 import styles from "./movieDetailsBody.module.css";
 
 function MovieDetailsBody() {
-  const movie = useAppSelector(selectMovie) as MovieType;
+  const movie = useAppSelector(selectMovie);
   const runtime = getRuntime(movie.runtime);
 
   return (

@@ -1,6 +1,5 @@
 import ReactDOM from "react-dom";
 
-import Button from "../common/Button/Button";
 import ModalCloseButton from "../common/Modal/ModalCloseButtons/ModalCloseButton";
 import ModalForm from "../common/Modal/ModalForm/ModalForm";
 
@@ -22,11 +21,7 @@ function Modal({ title, toggle, handleCloseButton }: ModalPropsType) {
             <p className={styles.modal_title}>{title}</p>
             <ModalCloseButton handleButton={handleCloseButton} />
           </div>
-          <ModalForm />
-          <div className={styles.modal_footer}>
-            <Button btnType={"btn_dark"}>Reset</Button>
-            <Button btnType={"btn_danger"}>Submit</Button>
-          </div>
+          <ModalForm handleCloseButton={handleCloseButton} />
         </div>
       </>,
       document.getElementById("modal-root") as HTMLElement

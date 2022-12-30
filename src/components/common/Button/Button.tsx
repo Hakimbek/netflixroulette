@@ -5,7 +5,7 @@ import styles from "./button.module.css";
 type ButtonPropsType = {
   btnType: "btn_primary" | "btn_danger" | "btn_dark";
   children: React.ReactNode;
-  onClick?: () => void;
+  onClick?: () => void | unknown;
 };
 
 function Button({ btnType, children, onClick }: ButtonPropsType) {

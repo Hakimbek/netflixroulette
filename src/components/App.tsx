@@ -5,15 +5,18 @@ import MovieDetails from "./MovieDetails/MovieDetails";
 import { useAppSelector } from "../redux/hooks";
 import { selectMovie } from "../redux/movieSlice";
 
+import InfoModal from "./Modal/InfoModal/InfoModal";
+
 import styles from "./app.module.css";
 
 function App() {
-  const movieIsSelected = useAppSelector(selectMovie);
+  const movie = useAppSelector(selectMovie);
 
   return (
     <div className={styles.App}>
-      {movieIsSelected ? <MovieDetails /> : <Header />}
+      {Object.keys(movie).length !== 0 ? <MovieDetails /> : <Header />}
       <Body />
+      <InfoModal />
       <Footer />
     </div>
   );

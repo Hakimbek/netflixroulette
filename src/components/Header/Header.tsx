@@ -3,7 +3,6 @@ import { useState } from "react";
 import Button from "../common/Button/Button";
 import Logo from "../common/Logo/Logo";
 import Modal from "../Modal/Modal";
-
 import Search from "./Search/Search";
 
 import styles from "./header.module.css";

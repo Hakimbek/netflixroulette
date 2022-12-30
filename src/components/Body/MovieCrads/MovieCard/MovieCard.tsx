@@ -14,13 +14,14 @@ function MovieCard({ movie }: MoviePropsType) {
   const dispatch = useAppDispatch();
 
   return (
-    <div className={styles.movieCard}>
+    <div
+      className={styles.movieCard}
+      onClick={() => dispatch(handleMovieClick(movie))}
+    >
       <div className={styles.movieCard_settings}>
         <MovieSettings />
       </div>
-      <div onClick={() => dispatch(handleMovieClick(movie))}>
-        <Poster posterPath={movie.poster_path} movieTitle={movie.title} />
-      </div>
+      <Poster posterPath={movie.poster_path} movieTitle={movie.title} />
       <div className={styles.movieCard_title}>
         <div className={styles.movieCard_name}>{movie.title}</div>
         <div className={styles.movieCard_year}>
