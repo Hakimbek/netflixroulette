@@ -18,7 +18,7 @@ function DeleteModal({ toggle, handleCloseButton }: DeleteModalPropsType) {
   const movie = useAppSelector(selectMovie);
   const [deleteMovie] = useDeleteMovieMutation();
 
-  if (toggle) {
+  if (toggle && movie) {
     return ReactDOM.createPortal(
       <>
         <div className={modalStyles.modal_opacity}></div>

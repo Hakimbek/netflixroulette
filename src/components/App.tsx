@@ -14,7 +14,7 @@ function App() {
 
   return (
     <div className={styles.App}>
-      {Object.keys(movie).length !== 0 ? <MovieDetails /> : <Header />}
+      {movie ? <MovieDetails /> : <Header />}
       <Body />
       <InfoModal />
       <Footer />

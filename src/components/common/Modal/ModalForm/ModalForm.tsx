@@ -27,6 +27,19 @@ function ModalForm({ handleCloseButton }: MovieFormPropsType) {
   const movie = useAppSelector(selectMovie);
   const [addMovie] = useAddMovieMutation();
   const [editMovie] = useEditMovieMutation();
+  let defaultValues;
+
+  if (movie) {
+    defaultValues = {
+      title: movie.title,
+      release_date: movie.release_date,
+      poster_path: movie.poster_path,
+      vote_average: movie.vote_average,
+      runtime: movie.runtime,
+      genres: movie.genres,
+      overview: movie.overview,
+    };
+  }
 
   const {
     reset,
@@ -35,17 +48,7 @@ function ModalForm({ handleCloseButton }: MovieFormPropsType) {
     getValues,
     handleSubmit,
     formState: { errors },
-  } = useForm<IFormValues>({
-    defaultValues: {
-      title: movie.title,
-      release_date: movie.release_date,
-      poster_path: movie.poster_path,
-      vote_average: movie.vote_average,
-      runtime: movie.runtime,
-      genres: movie.genres,
-      overview: movie.overview,
-    },
-  });
+  } = useForm<IFormValues>({ defaultValues });
 
   const onSubmit = async (data: IFormValues) => {
     if (typeof data.genres === "string") {
@@ -53,7 +56,7 @@ function ModalForm({ handleCloseButton }: MovieFormPropsType) {
     }
 
     try {
-      if (Object.keys(movie).length === 0) {
+      if (!movie) {
         await addMovie(data).unwrap();
         dispatch(
           setInfoText("The movie has been added to database successfully")

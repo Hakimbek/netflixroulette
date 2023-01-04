@@ -7,37 +7,41 @@ import styles from "./movieDetailsBody.module.css";
 
 function MovieDetailsBody() {
   const movie = useAppSelector(selectMovie);
-  const runtime = getRuntime(movie.runtime);
+  let content;
+  if (movie) {
+    const runtime = getRuntime(movie.runtime);
+    content = (
+      <div className={styles.movieDetails_bodyWrapper}>
+        <div className={styles.movieDetails_leftCol}>
+          <Poster posterPath={movie.poster_path} movieTitle={movie.title} />
+        </div>
+        <div className={styles.movieDetails_rightCol}>
+          <div className={styles.movieDetails_bodyWrapper}>
+            <div className={styles.movieDetails_title}>{movie.title}</div>
+            <div className={styles.movieDetails_rating}>
+              {movie.vote_average}
+            </div>
+          </div>
+          <div className={styles.movieDetails_genres}>
+            {movie.genres.map((genre, index) => (
+              <p key={index} className={styles.movieDetails_genre}>
+                {genre}
+              </p>
+            ))}
+          </div>
+          <div className={styles.movieDetails_bodyWrapper}>
+            <div className={styles.movieDetails_release}>
+              {movie.release_date}
+            </div>
+            <div className={styles.movieDetails_runtime}>{runtime}</div>
+          </div>
+          <div className={styles.movieDetails_overview}>{movie.overview}</div>
+        </div>
+      </div>
+    );
+  }
 
-  return (
-    <div className={styles.movieDetails_bodyWrapper}>
-      <div className={styles.movieDetails_leftCol}>
-        <Poster posterPath={movie.poster_path} movieTitle={movie.title} />
-      </div>
-      <div className={styles.movieDetails_rightCol}>
-        <div className={styles.movieDetails_bodyWrapper}>
-          <div className={styles.movieDetails_title}>{movie?.title}</div>
-          <div className={styles.movieDetails_rating}>
-            {movie?.vote_average}
-          </div>
-        </div>
-        <div className={styles.movieDetails_genres}>
-          {movie?.genres.map((genre, index) => (
-            <p key={index} className={styles.movieDetails_genre}>
-              {genre}
-            </p>
-          ))}
-        </div>
-        <div className={styles.movieDetails_bodyWrapper}>
-          <div className={styles.movieDetails_release}>
-            {movie?.release_date}
-          </div>
-          <div className={styles.movieDetails_runtime}>{runtime}</div>
-        </div>
-        <div className={styles.movieDetails_overview}>{movie?.overview}</div>
-      </div>
-    </div>
-  );
+  return <>{content}</>;
 }
 
 export default MovieDetailsBody;
