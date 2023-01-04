@@ -14,17 +14,6 @@
   background-color: var(--dark);
 }
 
-.modal_opacity {
-  position: fixed;
-  z-index: 2;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: var(--primary);
-  opacity: 0.5;
-}
-
 .modal_header {
   display: flex;
   justify-content: space-between;

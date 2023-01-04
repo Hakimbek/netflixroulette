@@ -5,6 +5,7 @@ import Modal from "../../Modal/Modal";
 import MovieSettingsButton from "./MovieSettingsButton/MovieSettingsButton";
 import MovieSettingsProperty from "./MovieSettingsProperty/MovieSettingsProperty";
 import { MovieType } from "../../../types/movie.type";
+import Portal from "../../common/Modal/Portal/Portal";
 
 type MovieSettingsPropsType = {
   movie: MovieType;
@@ -17,21 +18,13 @@ function MovieSettings({ movie }: MovieSettingsPropsType) {
 
   const handleMovieSettingToggle = () => setMovieSettingToggle((prev) => !prev);
 
-  const openDeleteModal = () => {
-    setDeleteModalToggle((prev) => !prev);
-  };
-
   const closeDeleteModal = () => {
-    setDeleteModalToggle((prev) => !prev);
+    setDeleteModalToggle(false);
     handleMovieSettingToggle();
   };
 
-  const openEditModal = () => {
-    setEditModalToggle((prev) => !prev);
-  };
-
   const closeEditModal = () => {
-    setEditModalToggle((prev) => !prev);
+    setEditModalToggle(false);
     handleMovieSettingToggle();
   };
 
@@ -41,20 +34,19 @@ function MovieSettings({ movie }: MovieSettingsPropsType) {
     <>
       <MovieSettingsProperty
         handleMovieSettingToggle={handleMovieSettingToggle}
-        openDeleteModal={openDeleteModal}
-        openEditModal={openEditModal}
+        openDeleteModal={() => setDeleteModalToggle(true)}
+        openEditModal={() => setEditModalToggle(true)}
       />
-      <DeleteModal
-        toggle={deleteModalToggle}
-        handleCloseButton={closeDeleteModal}
-        movieId={movie.id}
-      />
-      <Modal
-        title={"Edit movie"}
-        toggle={editModalToggle}
-        handleCloseButton={closeEditModal}
-        movie={movie}
-      />
+      <Portal open={deleteModalToggle}>
+        <DeleteModal handleCloseButton={closeDeleteModal} movieId={movie.id} />
+      </Portal>
+      <Portal open={editModalToggle}>
+        <Modal
+          title={"Edit movie"}
+          handleCloseButton={closeEditModal}
+          movie={movie}
+        />
+      </Portal>
     </>
   );
 }

@@ -18,6 +18,7 @@ type ModalSelectPropsType = {
   setValue: UseFormSetValue<IFormValues>;
   getValues: UseFormGetValues<IFormValues>;
   errors: FieldErrors<IFormValues>;
+  setValueAs: (value: string[]) => void;
 };
 
 function ModalSelect({
@@ -25,6 +26,7 @@ function ModalSelect({
   setValue,
   getValues,
   errors,
+  setValueAs,
 }: ModalSelectPropsType) {
   let defaultGenres: string[] = getValues("genres");
   if (defaultGenres === undefined) {
@@ -51,7 +53,7 @@ function ModalSelect({
         <label className={formStyles.label}>Genre</label>
         <input
           readOnly={true}
-          {...register("genres", { required: true, value: genres })}
+          {...register("genres", { required: true, value: genres, setValueAs })}
           className={selectStyles.selectedGenre}
           onClick={() => setSelectToggle(!selectToggle)}
         />

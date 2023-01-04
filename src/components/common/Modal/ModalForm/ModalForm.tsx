@@ -5,12 +5,6 @@ import {
   useAddMovieMutation,
   useEditMovieMutation,
 } from "../../../../redux/apiSlice";
-import { useAppDispatch, useAppSelector } from "../../../../redux/hooks";
-import {
-  handleInfoToggle,
-  setInfoText,
-  setInfoTitle,
-} from "../../../../redux/infoModalSlice";
 import { IFormValues } from "../../../../types/form.type";
 import ModalInput from "../ModalInput/ModalInput";
 import ModalTextarea from "../ModalTextarea/ModalTextarea";
@@ -24,9 +18,9 @@ type MovieFormPropsType = {
 };
 
 function ModalForm({ handleCloseButton, movie }: MovieFormPropsType) {
-  const dispatch = useAppDispatch();
   const [addMovie] = useAddMovieMutation();
   const [editMovie] = useEditMovieMutation();
+
   let defaultValues;
 
   if (movie) {
@@ -51,32 +45,21 @@ function ModalForm({ handleCloseButton, movie }: MovieFormPropsType) {
   } = useForm<IFormValues>({ defaultValues });
 
   const onSubmit = async (data: IFormValues) => {
-    if (typeof data.genres === "string") {
-      data.genres = [data.genres];
-    }
-
     try {
       if (!movie) {
         await addMovie(data).unwrap();
-        dispatch(
-          setInfoText("The movie has been added to database successfully")
-        );
       } else {
         const movieObj = { ...movie, ...data };
         await editMovie(movieObj).unwrap();
-        dispatch(setInfoText("The movie has been edited successfully"));
       }
-      dispatch(setInfoTitle("Congratulations!"));
-    } catch (err) {
-      dispatch(setInfoTitle("Error!"));
-      dispatch(setInfoText("Something went wrong"));
+    } finally {
+      handleCloseButton();
     }
-    handleCloseButton();
-    dispatch(handleInfoToggle());
   };
 
   return (
-    <form>
+    // eslint-disable-next-line @typescript-eslint/no-misused-promises
+    <form onSubmit={handleSubmit(onSubmit)}>
       <div className={styles.inputs_wrapper}>
         <ModalInput
           register={register}
@@ -111,7 +94,7 @@ function ModalForm({ handleCloseButton, movie }: MovieFormPropsType) {
         <ModalInput
           register={register}
           name={"vote_average"}
-          type={"number"}
+          type={"text"}
           size={"sm"}
           label={"Rating"}
           error={errors.vote_average && "Rating is required (0-10)"}
@@ -125,6 +108,7 @@ function ModalForm({ handleCloseButton, movie }: MovieFormPropsType) {
           setValue={setValue}
           getValues={getValues}
           errors={errors}
+          setValueAs={(value) => [...value]}
         />
         <ModalInput
           register={register}
@@ -139,10 +123,10 @@ function ModalForm({ handleCloseButton, movie }: MovieFormPropsType) {
       </div>
       <ModalTextarea register={register} errors={errors} />
       <div className={styles.modal_footer}>
-        <Button onClick={() => reset()} btnType={"btn_dark"}>
+        <Button type={"button"} onClick={() => reset()} btnType={"btn_dark"}>
           Reset
         </Button>
-        <Button onClick={handleSubmit(onSubmit)} btnType={"btn_danger"}>
+        <Button type={"submit"} btnType={"btn_danger"}>
           Submit
         </Button>
       </div>

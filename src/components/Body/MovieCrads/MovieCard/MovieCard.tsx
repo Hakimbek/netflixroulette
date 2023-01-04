@@ -1,5 +1,5 @@
 import { MovieType } from "../../../../types/movie.type";
-import { handleMovieClick } from "../../../../redux/movieSlice";
+import { seeMovieDetails } from "../../../../redux/movieSlice";
 import MovieSettings from "../../MovieSettings/MovieSettings";
 import { useAppDispatch } from "../../../../redux/hooks";
 import Poster from "../../../common/Poster/Poster";
@@ -18,7 +18,10 @@ function MovieCard({ movie }: MoviePropsType) {
       <div className={styles.movieCard_settings}>
         <MovieSettings movie={movie} />
       </div>
-      <div onClick={() => dispatch(handleMovieClick(movie))}>
+      <div
+        onClick={() => dispatch(seeMovieDetails(movie))}
+        className={styles.movie_info}
+      >
         <Poster posterPath={movie.poster_path} movieTitle={movie.title} />
         <div className={styles.movieCard_title}>
           <div className={styles.movieCard_name}>{movie.title}</div>
