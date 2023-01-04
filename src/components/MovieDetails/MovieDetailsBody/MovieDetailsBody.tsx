@@ -9,7 +9,6 @@ function MovieDetailsBody() {
   const movie = useAppSelector(selectMovie);
   let content;
   if (movie) {
-    const runtime = getRuntime(movie.runtime);
     content = (
       <div className={styles.movieDetails_bodyWrapper}>
         <div className={styles.movieDetails_leftCol}>
@@ -33,7 +32,9 @@ function MovieDetailsBody() {
             <div className={styles.movieDetails_release}>
               {movie.release_date}
             </div>
-            <div className={styles.movieDetails_runtime}>{runtime}</div>
+            <div className={styles.movieDetails_runtime}>
+              {getRuntime(movie.runtime)}
+            </div>
           </div>
           <div className={styles.movieDetails_overview}>{movie.overview}</div>
         </div>
