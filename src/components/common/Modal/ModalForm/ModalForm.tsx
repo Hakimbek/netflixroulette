@@ -11,20 +11,20 @@ import {
   setInfoText,
   setInfoTitle,
 } from "../../../../redux/infoModalSlice";
-import { selectMovie } from "../../../../redux/movieSlice";
 import { IFormValues } from "../../../../types/form.type";
 import ModalInput from "../ModalInput/ModalInput";
 import ModalTextarea from "../ModalTextarea/ModalTextarea";
+import { MovieType } from "../../../../types/movie.type";
 
 import styles from "./modalInpuits.module.css";
 
 type MovieFormPropsType = {
   handleCloseButton: () => void;
+  movie: MovieType | null;
 };
 
-function ModalForm({ handleCloseButton }: MovieFormPropsType) {
+function ModalForm({ handleCloseButton, movie }: MovieFormPropsType) {
   const dispatch = useAppDispatch();
-  const movie = useAppSelector(selectMovie);
   const [addMovie] = useAddMovieMutation();
   const [editMovie] = useEditMovieMutation();
   let defaultValues;

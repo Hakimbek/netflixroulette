@@ -27,6 +27,7 @@ function Header() {
         title={"Add movie"}
         toggle={toggle}
         handleCloseButton={handleToggle}
+        movie={null}
       />
     </div>
   );
