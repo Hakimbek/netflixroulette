@@ -8,11 +8,11 @@ import { selectMovie } from "../redux/movieSlice";
 import styles from "./app.module.css";
 
 function App() {
-  const movieIsSelected = useAppSelector(selectMovie);
+  const movie = useAppSelector(selectMovie);
 
   return (
     <div className={styles.App}>
-      {movieIsSelected ? <MovieDetails /> : <Header />}
+      {movie ? <MovieDetails /> : <Header />}
       <Body />
       <Footer />
     </div>

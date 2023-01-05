@@ -3,14 +3,14 @@ import { RootState } from "./store";
 import { MovieType } from "../types/movie.type";
 
 type InitialStateType = {
-  movie: MovieType | boolean;
+  movie: MovieType | null;
   sortBy: string;
   sortOrder: string;
   filterBy: string[];
 };
 
 const initialState: InitialStateType = {
-  movie: false,
+  movie: null,
   sortBy: "release_date",
   sortOrder: "desc",
   filterBy: [],
@@ -29,7 +29,7 @@ const movieSlice = createSlice({
     setFilterBy(state, action: { payload: string[] }) {
       state.filterBy = action.payload;
     },
-    handleMovieClick(state, action: { payload: MovieType | false }) {
+    seeMovieDetails(state, action: { payload: MovieType | null }) {
       state.movie = action.payload;
     },
   },
@@ -40,7 +40,7 @@ export const selectSortOrder = (state: RootState) => state.movie.sortOrder;
 export const selectFilterBy = (state: RootState) => state.movie.filterBy;
 export const selectMovie = (state: RootState) => state.movie.movie;
 
-export const { setSortBy, setFilterBy, handleMovieClick, setSortOrder } =
+export const { setSortBy, setFilterBy, seeMovieDetails, setSortOrder } =
   movieSlice.actions;
 
 export default movieSlice.reducer;

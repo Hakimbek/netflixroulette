@@ -5,10 +5,11 @@ import styles from "./button.module.css";
 type ButtonPropsType = {
   btnType: "btn_primary" | "btn_danger" | "btn_dark";
   children: React.ReactNode;
-  onClick?: () => void;
+  onClick?: () => void | unknown;
+  type?: "button" | "submit";
 };
 
-function Button({ btnType, children, onClick }: ButtonPropsType) {
+function Button({ btnType, children, onClick, type }: ButtonPropsType) {
   let btn;
 
   if (btnType === "btn_primary") {
@@ -20,7 +21,7 @@ function Button({ btnType, children, onClick }: ButtonPropsType) {
   }
 
   return (
-    <button onClick={onClick} className={`${styles.btn} ${btn}`}>
+    <button type={type} onClick={onClick} className={`${styles.btn} ${btn}`}>
       {children}
     </button>
   );

@@ -1,0 +1,9 @@
+.modal_textarea {
+  height: 150px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  background-color: var(--primary);
+  color: var(--light);
+  font-size: 18px;
+}

@@ -1,13 +1,18 @@
 @import "../../../app.module.css";
 
 .movieCard {
-  width: 320px;
+  display: flex;
+  flex-basis: 33%;
+  justify-content: center;
   color: var(--light);
-  cursor: pointer;
 }
 
 .movieCard:hover .movieCard_settings {
   visibility: visible;
+}
+
+.movie_info {
+  cursor: pointer;
 }
 
 .movieCard_title {

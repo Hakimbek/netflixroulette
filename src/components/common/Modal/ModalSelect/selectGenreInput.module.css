@@ -1,13 +1,11 @@
-@import "../../../../app.module.css";
-
 .selectedGenre {
   display: flex;
   align-items: center;
   width: 500px;
-  height: 44px;
-  margin-left: 10px;
+  height: 40px;
   padding-left: 10px;
   padding-right: 2px;
+  border: none;
   border-radius: 5px;
   background-color: var(--primary);
   color: var(--light);
@@ -16,10 +14,13 @@
   cursor: pointer;
 }
 
+.selectedGenre:focus {
+  outline: none;
+}
+
 .genreOptionsList {
   position: absolute;
   width: 515px;
-  margin-left: 10px;
   border-radius: 5px;
   background: var(--dark);
   color: var(--light);
