@@ -58,8 +58,7 @@ function ModalForm({ handleCloseButton, movie }: MovieFormPropsType) {
   };
 
   return (
-    // eslint-disable-next-line @typescript-eslint/no-misused-promises
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form>
       <div className={styles.inputs_wrapper}>
         <ModalInput
           register={register}
@@ -126,7 +125,11 @@ function ModalForm({ handleCloseButton, movie }: MovieFormPropsType) {
         <Button type={"button"} onClick={() => reset()} btnType={"btn_dark"}>
           Reset
         </Button>
-        <Button type={"submit"} btnType={"btn_danger"}>
+        <Button
+          type={"submit"}
+          btnType={"btn_danger"}
+          onClick={handleSubmit(onSubmit)}
+        >
           Submit
         </Button>
       </div>
