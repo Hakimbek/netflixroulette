@@ -1,10 +1,9 @@
-import { SortingOptionsType } from "../../../../../../types/sortingOptions.type";
 import DropDownItem from "./DropDownItem";
 
 type DropDownListPropsType = {
-  options: SortingOptionsType[];
+  options: string[];
   toggle: boolean;
-  handleSelectedOption: (option: SortingOptionsType) => void;
+  handleSelectedOption: (option: string) => void;
 };
 
 import styles from "../dropDown.module.css";

@@ -6,6 +6,7 @@ import {
   selectSortBy,
   selectSortOrder,
   selectFilterBy,
+  selectSearchQuery,
 } from "../../../redux/movieSlice";
 import { selectOffset } from "../../../redux/paginationSlice";
 import { useAppSelector } from "../../../redux/hooks";
@@ -19,7 +20,8 @@ function MovieCards() {
   const sortOrder = useAppSelector(selectSortOrder);
   const filterBy = useAppSelector(selectFilterBy).join("%2C%20");
   const offset = useAppSelector(selectOffset);
-  const queryParam = { sortBy, sortOrder, filterBy, offset };
+  const searchQuery = useAppSelector(selectSearchQuery);
+  const queryParam = { sortBy, sortOrder, filterBy, offset, searchQuery };
   const {
     data: movies,
     isLoading,

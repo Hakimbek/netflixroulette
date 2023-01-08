@@ -7,13 +7,15 @@ type InitialStateType = {
   sortBy: string;
   sortOrder: string;
   filterBy: string[];
+  searchQuery: string;
 };
 
 const initialState: InitialStateType = {
   movie: null,
-  sortBy: "release_date",
+  sortBy: "nothing",
   sortOrder: "desc",
   filterBy: [],
+  searchQuery: "",
 };
 
 const movieSlice = createSlice({
@@ -29,6 +31,9 @@ const movieSlice = createSlice({
     setFilterBy(state, action: { payload: string[] }) {
       state.filterBy = action.payload;
     },
+    setSearchQuery(state, action: { payload: string }) {
+      state.searchQuery = action.payload;
+    },
     seeMovieDetails(state, action: { payload: MovieType | null }) {
       state.movie = action.payload;
     },
@@ -38,9 +43,15 @@ const movieSlice = createSlice({
 export const selectSortBy = (state: RootState) => state.movie.sortBy;
 export const selectSortOrder = (state: RootState) => state.movie.sortOrder;
 export const selectFilterBy = (state: RootState) => state.movie.filterBy;
+export const selectSearchQuery = (state: RootState) => state.movie.searchQuery;
 export const selectMovie = (state: RootState) => state.movie.movie;
 
-export const { setSortBy, setFilterBy, seeMovieDetails, setSortOrder } =
-  movieSlice.actions;
+export const {
+  setSortBy,
+  setFilterBy,
+  seeMovieDetails,
+  setSortOrder,
+  setSearchQuery,
+} = movieSlice.actions;
 
 export default movieSlice.reducer;

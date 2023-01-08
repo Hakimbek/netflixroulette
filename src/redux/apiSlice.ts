@@ -7,6 +7,7 @@ type QueryParam = {
   sortOrder: string;
   filterBy: string;
   offset: number;
+  searchQuery: string;
 };
 
 export const apiSlice = createApi({
@@ -16,8 +17,8 @@ export const apiSlice = createApi({
   endpoints: (builder) => ({
     getMovies: builder.query<MoviesType, QueryParam>({
       query: (queryParam) => {
-        const { sortBy, sortOrder, filterBy, offset } = queryParam;
-        return `/movies?limit=21&sortBy=${sortBy}&sortOrder=${sortOrder}&filter=${filterBy}&offset=${offset}`;
+        const { sortBy, sortOrder, filterBy, offset, searchQuery } = queryParam;
+        return `/movies?limit=21&sortBy=${sortBy}&sortOrder=${sortOrder}&filter=${filterBy}&offset=${offset}&search=${searchQuery}&searchBy=title`;
       },
       providesTags: (result) =>
         result
@@ -26,6 +27,9 @@ export const apiSlice = createApi({
               ...result.data.map(({ id }) => ({ type: "Movie" as const, id })),
             ]
           : ["Movie"],
+    }),
+    getMovie: builder.query<MovieType, number>({
+      query: (movieId) => `/movies/${movieId}`,
     }),
     deleteMovie: builder.mutation<void, number>({
       query: (movieId) => ({
@@ -58,4 +62,5 @@ export const {
   useDeleteMovieMutation,
   useAddMovieMutation,
   useEditMovieMutation,
+  useGetMovieQuery,
 } = apiSlice;
