@@ -28,9 +28,6 @@ export const apiSlice = createApi({
             ]
           : ["Movie"],
     }),
-    getMovie: builder.query<MovieType, number>({
-      query: (movieId) => `/movies/${movieId}`,
-    }),
     deleteMovie: builder.mutation<void, number>({
       query: (movieId) => ({
         url: `/movies/${movieId}`,
@@ -62,5 +59,4 @@ export const {
   useDeleteMovieMutation,
   useAddMovieMutation,
   useEditMovieMutation,
-  useGetMovieQuery,
 } = apiSlice;
