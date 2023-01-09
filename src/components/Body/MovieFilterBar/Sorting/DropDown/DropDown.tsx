@@ -1,30 +1,55 @@
 import { useState } from "react";
-
-import { SortingOptionsType } from "../../../../../types/sortingOptions.type";
-
 import DropDownHeader from "./DropDownHeader/DropDownHeader";
 import DropDownList from "./DropDownList/DropDownList";
 import { sortingOptions } from "./sortingOptions";
-import { useAppDispatch } from "../../../../../redux/hooks";
-import { setSortBy } from "../../../../../redux/movieSlice";
+import { useAppDispatch, useAppSelector } from "../../../../../redux/hooks";
+import {
+  setSortBy,
+  selectSortBy,
+  selectFilterBy,
+  selectMovie,
+  selectSearchQuery,
+} from "../../../../../redux/movieSlice";
+import { useNavigate } from "react-router-dom";
 
 import styles from "./dropDown.module.css";
 
 function DropDown() {
+  const navigate = useNavigate();
+  const genre = useAppSelector(selectFilterBy);
+  const movie = useAppSelector(selectMovie);
+  const searchQuery = useAppSelector(selectSearchQuery);
   const dispatch = useAppDispatch();
+  const sortBy = useAppSelector(selectSortBy);
   const [toggle, setToggle] = useState(false);
-  const [selectedOption, setSelectedOption] = useState<SortingOptionsType>(
-    sortingOptions[0]
-  );
 
   const handleToggle = () => {
     setToggle(!toggle);
   };
 
-  const handleSelectedOption = (option: SortingOptionsType) => {
-    dispatch(setSortBy(option.sortBy));
-    setSelectedOption(option);
+  const handleSelectedOption = (option: string) => {
+    dispatch(setSortBy(option));
     handleToggle();
+
+    let to = "/search";
+
+    if (searchQuery) {
+      to += `/${searchQuery}`;
+    }
+
+    if (genre.length !== 0) {
+      to += `/genre/${genre.join("&")}`;
+    }
+
+    if (option !== "nothing") {
+      to += `/sortBy/${option}`;
+    }
+
+    if (movie) {
+      to += `/movie/${movie.id}`;
+    }
+
+    navigate(to);
   };
 
   return (
@@ -32,7 +57,7 @@ function DropDown() {
       <DropDownHeader
         toggle={toggle}
         handleToggle={handleToggle}
-        selectedOption={selectedOption.optionName}
+        selectedOption={sortBy}
       />
       <DropDownList
         options={sortingOptions}

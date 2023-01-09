@@ -1,10 +1,8 @@
-import { SortingOptionsType } from "../../../../../../types/sortingOptions.type";
-
 import styles from "../dropDown.module.css";
 
 type DropDownItemPropsType = {
-  children: SortingOptionsType;
-  handleSelectedOption: (option: SortingOptionsType) => void;
+  children: string;
+  handleSelectedOption: (option: string) => void;
 };
 
 function DropDownItem({
@@ -16,7 +14,7 @@ function DropDownItem({
       className={styles.dropDown_item}
       onClick={() => handleSelectedOption(children)}
     >
-      {children.optionName}
+      {children}
     </div>
   );
 }

@@ -12,7 +12,7 @@
 }
 
 .movie_info {
-  cursor: pointer;
+  width: 320px;
 }
 
 .movieCard_title {
