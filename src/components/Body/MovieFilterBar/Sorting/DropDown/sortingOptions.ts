@@ -1,1 +1,1 @@
-export const sortingOptions: string[] = ["nothing", "release_date", "title"];
+export const sortingOptions: string[] = ["release_date", "title"];

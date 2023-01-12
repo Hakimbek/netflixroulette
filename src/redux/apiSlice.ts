@@ -4,9 +4,7 @@ import { IFormValues } from "../types/form.type";
 
 type QueryParam = {
   sortBy: string;
-  sortOrder: string;
   filterBy: string;
-  offset: number;
   searchQuery: string;
 };
 
@@ -17,8 +15,8 @@ export const apiSlice = createApi({
   endpoints: (builder) => ({
     getMovies: builder.query<MoviesType, QueryParam>({
       query: (queryParam) => {
-        const { sortBy, sortOrder, filterBy, offset, searchQuery } = queryParam;
-        return `/movies?limit=21&sortBy=${sortBy}&sortOrder=${sortOrder}&filter=${filterBy}&offset=${offset}&search=${searchQuery}&searchBy=title`;
+        const { sortBy, filterBy, searchQuery } = queryParam;
+        return `/movies?search=${searchQuery}&limit=21&sortBy=${sortBy}&sortOrder=desc&filter=${filterBy}&searchBy=title`;
       },
       providesTags: (result) =>
         result

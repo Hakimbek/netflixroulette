@@ -1,45 +1,32 @@
 import Logo from "../../common/Logo/Logo";
-import {
-  seeMovieDetails,
-  selectFilterBy,
-  selectSearchQuery,
-  selectSortBy,
-} from "../../../redux/movieSlice";
 import magnifierIcon from "../../../assets/images/magnifierIcon.png";
-import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
-import { Link } from "react-router-dom";
+import { useAppDispatch } from "../../../redux/hooks";
+import { seeMovieDetails } from "../../../redux/movieSlice";
+import { useSearchParams } from "react-router-dom";
 
 import styles from "./movieDetailsHeader.module.css";
 
 function MovieDetailsHeader() {
-  const searchQuery = useAppSelector(selectSearchQuery);
-  const options = useAppSelector(selectFilterBy);
-  const sortBy = useAppSelector(selectSortBy);
+  const [, setSearchParams] = useSearchParams();
   const dispatch = useAppDispatch();
-  let to = "/search";
 
-  if (searchQuery) {
-    to += `/${searchQuery}`;
-  }
-
-  if (options.length !== 0) {
-    to += `/genre/${options.join("&")}`;
-  }
-
-  if (sortBy !== "nothing") {
-    to += `/sortBy/${sortBy}`;
-  }
+  const handleMagnifierButton = () => {
+    setSearchParams((prev) => {
+      prev.delete("movie");
+      return prev;
+    });
+    dispatch(seeMovieDetails(null));
+  };
 
   return (
     <div className={styles.movieDetails_headerWrapper}>
       <Logo />
-      <Link
-        to={to}
-        onClick={() => dispatch(seeMovieDetails(null))}
+      <img
+        onClick={handleMagnifierButton}
         className={styles.magnifier}
-      >
-        <img src={magnifierIcon} alt="Magnifier" />
-      </Link>
+        src={magnifierIcon}
+        alt="Magnifier"
+      />
     </div>
   );
 }

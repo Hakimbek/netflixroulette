@@ -1,5 +1,5 @@
 .dropDown_wrapper {
-  width: 300px;
+  width: 250px;
   color: white;
   cursor: pointer;
 }
@@ -13,7 +13,7 @@
 .dropDown_list {
   position: absolute;
   z-index: 2;
-  width: 300px;
+  width: 250px;
   margin-top: 20px;
   background-color: #232323;
 }
