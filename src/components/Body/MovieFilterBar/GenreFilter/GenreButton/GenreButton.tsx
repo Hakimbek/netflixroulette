@@ -1,33 +1,29 @@
-import React, { useState } from "react";
-import { setFilterBy, selectFilterBy } from "../../../../../redux/movieSlice";
-import { setOffset, setPage } from "../../../../../redux/paginationSlice";
-import { useAppSelector, useAppDispatch } from "../../../../../redux/hooks";
+import React from "react";
 
 import styles from "../genre.module.css";
 
 type GenreButtonPropsType = {
   children: string;
+  active: boolean;
+  addGenre: (children: string) => void;
+  deleteGenre: (children: string) => void;
 };
 
-function GenreButton({ children }: GenreButtonPropsType) {
-  const dispatch = useAppDispatch();
-  let options = useAppSelector(selectFilterBy);
-  const [toggle, setToggle] = useState(false);
-
+function GenreButton({
+  children,
+  active,
+  addGenre,
+  deleteGenre,
+}: GenreButtonPropsType) {
   const handleButton = () => {
-    if (toggle) {
-      const newOptions = options.filter((option) => option !== children);
-      options = [...newOptions];
+    if (active) {
+      deleteGenre(children);
     } else {
-      options = [...options, children];
+      addGenre(children);
     }
-    setToggle((prev) => !prev);
-    dispatch(setFilterBy(options));
-    dispatch(setOffset(0));
-    dispatch(setPage(1));
   };
 
-  const style: React.CSSProperties = toggle
+  const style: React.CSSProperties = active
     ? {
         borderBottom: "2px solid var(--danger)",
       }

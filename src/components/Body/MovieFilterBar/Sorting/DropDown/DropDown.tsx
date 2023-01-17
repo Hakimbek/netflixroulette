@@ -1,44 +1,34 @@
-import { useState } from "react";
-
-import { SortingOptionsType } from "../../../../../types/sortingOptions.type";
-
+import { useEffect, useState } from "react";
 import DropDownHeader from "./DropDownHeader/DropDownHeader";
 import DropDownList from "./DropDownList/DropDownList";
-import { sortingOptions } from "./sortingOptions";
-import { useAppDispatch } from "../../../../../redux/hooks";
-import { setSortBy } from "../../../../../redux/movieSlice";
+import { useSearchParams } from "react-router-dom";
 
 import styles from "./dropDown.module.css";
 
 function DropDown() {
-  const dispatch = useAppDispatch();
-  const [toggle, setToggle] = useState(false);
-  const [selectedOption, setSelectedOption] = useState<SortingOptionsType>(
-    sortingOptions[0]
-  );
+  const [sortToggle, setSortToggle] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const sortBy = searchParams.get("sortBy") || "release_date";
 
-  const handleToggle = () => {
-    setToggle(!toggle);
-  };
+  useEffect(() => {
+    setSearchParams((prev) => {
+      prev.set("sortBy", sortBy);
+      return prev;
+    });
+  }, [setSearchParams, sortBy]);
 
-  const handleSelectedOption = (option: SortingOptionsType) => {
-    dispatch(setSortBy(option.sortBy));
-    setSelectedOption(option);
-    handleToggle();
+  const handleSortToggle = () => {
+    setSortToggle(!sortToggle);
   };
 
   return (
     <div className={styles.dropDown_wrapper}>
       <DropDownHeader
-        toggle={toggle}
-        handleToggle={handleToggle}
-        selectedOption={selectedOption.optionName}
+        toggle={sortToggle}
+        handleToggle={handleSortToggle}
+        selectedOption={sortBy}
       />
-      <DropDownList
-        options={sortingOptions}
-        toggle={toggle}
-        handleSelectedOption={handleSelectedOption}
-      />
+      <DropDownList toggle={sortToggle} handleToggle={handleSortToggle} />
     </div>
   );
 }

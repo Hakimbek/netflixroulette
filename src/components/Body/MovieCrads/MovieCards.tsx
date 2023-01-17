@@ -2,30 +2,23 @@ import MoviesAmount from "../../MoviesAmount/MoviesAmount";
 import { useGetMoviesQuery } from "../../../redux/apiSlice";
 import { Spinner } from "../../common/Spinner/Spinner";
 import MovieCard from "./MovieCard/MovieCard";
-import {
-  selectSortBy,
-  selectSortOrder,
-  selectFilterBy,
-} from "../../../redux/movieSlice";
-import { selectOffset } from "../../../redux/paginationSlice";
-import { useAppSelector } from "../../../redux/hooks";
-import Pagination from "../Pagination/Pagination";
 import Error from "../../common/Error/Error";
+import { useSearchParams } from "react-router-dom";
 
 import styles from "./movieCadrds.module.css";
 
 function MovieCards() {
-  const sortBy = useAppSelector(selectSortBy);
-  const sortOrder = useAppSelector(selectSortOrder);
-  const filterBy = useAppSelector(selectFilterBy).join("%2C%20");
-  const offset = useAppSelector(selectOffset);
-  const queryParam = { sortBy, sortOrder, filterBy, offset };
+  const [searchParams] = useSearchParams();
+  const sortBy = searchParams.get("sortBy") || "release_date";
+  const searchQuery = searchParams.get("searchQuery") || "";
+  const filterBy = searchParams.getAll("genre").join("%2C%20");
+
   const {
     data: movies,
     isLoading,
     isSuccess,
     isError,
-  } = useGetMoviesQuery(queryParam);
+  } = useGetMoviesQuery({ sortBy, filterBy, searchQuery });
 
   let content;
 
@@ -43,7 +36,6 @@ function MovieCards() {
     <>
       <MoviesAmount moviesAmount={movies?.totalAmount || 0} />
       <div className={styles.movieCards}>{content}</div>
-      <Pagination total={movies?.totalAmount || 0} />
     </>
   );
 }

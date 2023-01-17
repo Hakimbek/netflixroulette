@@ -3,6 +3,8 @@ import { seeMovieDetails } from "../../../../redux/movieSlice";
 import MovieSettings from "../../MovieSettings/MovieSettings";
 import { useAppDispatch } from "../../../../redux/hooks";
 import Poster from "../../../common/Poster/Poster";
+import { useSearchParams } from "react-router-dom";
+import { useEffect } from "react";
 
 import styles from "./movieCard.module.css";
 
@@ -11,17 +13,30 @@ type MoviePropsType = {
 };
 
 function MovieCard({ movie }: MoviePropsType) {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const movieParam = searchParams.get("movie");
   const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    if (movieParam && movieParam === String(movie.id)) {
+      dispatch(seeMovieDetails(movie));
+    }
+  }, [dispatch, movie, movieParam]);
+
+  const handleMovieDetails = () => {
+    setSearchParams((prev) => {
+      prev.set("movie", String(movie.id));
+      return prev;
+    });
+    dispatch(seeMovieDetails(movie));
+  };
 
   return (
     <div className={styles.movieCard}>
       <div className={styles.movieCard_settings}>
         <MovieSettings movie={movie} />
       </div>
-      <div
-        onClick={() => dispatch(seeMovieDetails(movie))}
-        className={styles.movie_info}
-      >
+      <div className={styles.movie_info} onClick={handleMovieDetails}>
         <Poster posterPath={movie.poster_path} movieTitle={movie.title} />
         <div className={styles.movieCard_title}>
           <div className={styles.movieCard_name}>{movie.title}</div>

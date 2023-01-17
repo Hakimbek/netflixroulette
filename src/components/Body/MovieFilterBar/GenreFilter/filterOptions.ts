@@ -1,1 +1,1 @@
-export const filterOptions = ["Documentary", "Comedy", "Horror", "Crime"];
+export const filterOptions = ["documentary", "comedy", "horror", "crime"];
