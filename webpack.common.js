@@ -8,7 +8,7 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     filename: "[name]bundle.js",
     clean: true,
-    publicPath: '/'
+    publicPath: "/",
   },
   resolve: {
     modules: [path.resolve(__dirname, "./src"), "node_modules"],

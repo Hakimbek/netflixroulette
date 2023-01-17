@@ -12,20 +12,16 @@ import "@fontsource/montserrat";
 
 import "./index.css";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    errorElement: <NotFound />,
-    children: [
-      {
-        index: true,
-        path: "search",
-        element: <App />,
-      },
-    ],
-  },
-]);
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <App />,
+      errorElement: <NotFound />,
+    },
+  ],
+  { basename: "/search" }
+);
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

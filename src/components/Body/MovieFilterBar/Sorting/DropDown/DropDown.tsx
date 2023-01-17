@@ -15,7 +15,7 @@ function DropDown() {
       prev.set("sortBy", sortBy);
       return prev;
     });
-  }, []);
+  }, [setSearchParams, sortBy]);
 
   const handleSortToggle = () => {
     setSortToggle(!sortToggle);
