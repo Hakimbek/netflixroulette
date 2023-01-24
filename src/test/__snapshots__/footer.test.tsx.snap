@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer render Footer component 1`] = `
+<DocumentFragment>
+  <div
+    class="footer"
+  >
+    <p
+      class="logo"
+    >
+      <b>
+        netflix
+      </b>
+      roulette
+    </p>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Footer renders Footer component 1`] = `
+<DocumentFragment>
+  <div
+    class="footer"
+  >
+    <p
+      class="logo"
+    >
+      <b>
+        netflix
+      </b>
+      roulette
+    </p>
+  </div>
+</DocumentFragment>
+`;

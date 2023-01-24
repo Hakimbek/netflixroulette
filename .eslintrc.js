@@ -2,8 +2,10 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
+    "jest/globals": true
   },
   extends: [
+    "plugin:jest/recommended",
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
@@ -26,13 +28,14 @@ module.exports = {
     "@typescript-eslint",
     "prettier",
     "css-import-order",
+    "jest"
   ],
   settings: {
     react: {
       version: "detect",
     },
   },
-  ignorePatterns: ["webpack.common.js"],
+  ignorePatterns: ["webpack.common.js", "jest.config.js", "babel.config.js"],
   rules: {
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
