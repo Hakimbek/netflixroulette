@@ -2,10 +2,11 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
-    "jest/globals": true
+    "jest/globals": true,
   },
   extends: [
-    "plugin:jest/recommended",
+    "plugin:testing-library/react",
+    "plugin:jest-dom/recommended",
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
@@ -28,7 +29,9 @@ module.exports = {
     "@typescript-eslint",
     "prettier",
     "css-import-order",
-    "jest"
+    "jest",
+    "jest-dom",
+    "testing-library",
   ],
   settings: {
     react: {
@@ -48,5 +51,18 @@ module.exports = {
     "@typescript-eslint/no-var-requires": "error",
     "@typescript-eslint/ban-ts-comment": "error",
     "no-console": "error",
+    "jest/no-disabled-tests": "warn",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "jest/prefer-to-have-length": "warn",
+    "jest/valid-expect": "error",
+    "testing-library/await-async-query": "error",
+    "testing-library/no-await-sync-query": "error",
+    "testing-library/no-debugging-utils": "warn",
+    "testing-library/no-dom-import": "off",
+    "jest-dom/prefer-checked": "error",
+    "jest-dom/prefer-enabled-disabled": "error",
+    "jest-dom/prefer-required": "error",
+    "jest-dom/prefer-to-have-attribute": "error",
   },
 };

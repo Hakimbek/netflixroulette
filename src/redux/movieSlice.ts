@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "./store";
 import { MovieType } from "../types/movie.type";
 
-type InitialStateType = {
+export type InitialStateType = {
   movie: MovieType | null;
 };
 

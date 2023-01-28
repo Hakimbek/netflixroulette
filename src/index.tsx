@@ -4,24 +4,29 @@ import ReactDOM from "react-dom/client";
 import App from "./components/App";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { Provider } from "react-redux";
-import { store } from "./redux/store";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { setupStore } from "./redux/store";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Navigate,
+} from "react-router-dom";
 import NotFound from "./components/common/Error/NotFound";
 
 import "@fontsource/montserrat";
 
 import "./index.css";
 
-const router = createBrowserRouter(
-  [
-    {
-      path: "/",
-      element: <App />,
-      errorElement: <NotFound />,
-    },
-  ],
-  { basename: "/search" }
-);
+export const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Navigate replace to="/search" />,
+    errorElement: <NotFound />,
+  },
+  {
+    path: "search",
+    element: <App />,
+  },
+]);
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -29,7 +34,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <ErrorBoundary>
-      <Provider store={store}>
+      <Provider store={setupStore()}>
         <RouterProvider router={router} />
       </Provider>
     </ErrorBoundary>
