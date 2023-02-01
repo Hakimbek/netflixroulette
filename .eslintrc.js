@@ -3,8 +3,10 @@ module.exports = {
     browser: true,
     es2021: true,
     "jest/globals": true,
+    "cypress/globals": true,
   },
   extends: [
+    "plugin:cypress/recommended",
     "plugin:testing-library/react",
     "plugin:jest-dom/recommended",
     "eslint:recommended",
@@ -32,6 +34,7 @@ module.exports = {
     "jest",
     "jest-dom",
     "testing-library",
+    "cypress",
   ],
   settings: {
     react: {
@@ -64,5 +67,11 @@ module.exports = {
     "jest-dom/prefer-enabled-disabled": "error",
     "jest-dom/prefer-required": "error",
     "jest-dom/prefer-to-have-attribute": "error",
+    "cypress/no-assigning-return-values": "error",
+    "cypress/no-unnecessary-waiting": "error",
+    "cypress/assertion-before-screenshot": "warn",
+    "cypress/no-force": "warn",
+    "cypress/no-async-tests": "error",
+    "cypress/no-pause": "error",
   },
 };

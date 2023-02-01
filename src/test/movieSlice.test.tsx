@@ -1,7 +1,4 @@
-import reducer, {
-  seeMovieDetails,
-  InitialStateType,
-} from "../redux/movieSlice";
+import reducer, { seeMovieDetails } from "../redux/movieSlice";
 
 const movie = {
   id: 1,

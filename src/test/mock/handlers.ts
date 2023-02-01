@@ -1,7 +1,7 @@
 import { rest } from "msw";
 
 export const handlers = [
-  rest.post("http://localhost:4000/movies", (req, res, ctx) => {
+  rest.get("http://localhost:4000/movies", (req, res, ctx) => {
     return res(
       ctx.status(200),
       ctx.json({

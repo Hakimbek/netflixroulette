@@ -4,7 +4,7 @@ import ReactDOM from "react-dom/client";
 import App from "./components/App";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { Provider } from "react-redux";
-import { setupStore } from "./redux/store";
+import { store } from "./redux/store";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -34,7 +34,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <ErrorBoundary>
-      <Provider store={setupStore()}>
+      <Provider store={store}>
         <RouterProvider router={router} />
       </Provider>
     </ErrorBoundary>

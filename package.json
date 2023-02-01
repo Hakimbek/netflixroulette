@@ -11,7 +11,8 @@
     "prettier": "prettier --check .",
     "prettier:fix": "prettier --write .",
     "test": "jest --watch",
-    "test:coverage": "jest --coverage --collectCoverageFrom=src/components/**/*.{ts,tsx}"
+    "test:coverage": "jest --coverage --collectCoverageFrom=src/components/**/*.{ts,tsx}",
+    "cypress:open": "cypress open"
   },
   "repository": {
     "type": "git",
@@ -41,6 +42,7 @@
     "babel-loader": "^9.1.0",
     "css-loader": "^6.7.2",
     "css-minimizer-webpack-plugin": "^4.2.2",
+    "cypress": "^12.4.1",
     "eslint": "^8.28.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-jest": "^27.2.1",

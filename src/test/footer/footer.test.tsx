@@ -1,9 +1,9 @@
 import { render, screen } from "@testing-library/react";
-import Logo from "../components/common/Logo/Logo";
+import Footer from "../../components/Footer/Footer";
 
-describe("Logo", () => {
-  it("renders Logo component", () => {
-    render(<Logo />);
+describe("Footer", () => {
+  it("render Footer correctly", () => {
+    render(<Footer />);
     expect(screen.getByText(/netflix/i)).toBeInTheDocument();
     expect(screen.getByText(/roulette/i)).toBeInTheDocument();
   });
