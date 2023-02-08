@@ -11,7 +11,6 @@
 - Clone the netflixroulette [repository](https://github.com/Hakimbek/netflixroulette)
 - Navigate to the cloned repository folder and run `npm install` to install dependencies
 - Run `npm start` command to start the netflixroulette. It will start on `http://localhost:3000`
-- Change current location to `http://localhost:3000/search` (add search to URL)
 
 # What was done step by step
 
@@ -121,18 +120,23 @@ Using [react-router](https://reactrouter.com/en/main) define routes according to
 
 **AC1**<br>
 **Given:** any state<br>
+**When:** the address bar pathname is changed to `/`
+**Then:** the user should be redirected to `/search`
+
+**AC2**<br>
+**Given:** any state<br>
 **When:** the address bar pathname is changed to `/search` without a `searchQuery`<br>
 **Then:** the search page with the most popular movies should be displayed<br>
 **And:** search input value should be empty
 
-**AC2**<br>
+**AC3**<br>
 **Given:** any state<br>
 **When:** the address bar pathname is changed to `/search?searchQuery=searchValue` where `searchQuery` is not an empty string<br>
 **Then:** the search page with results should be displayed<br>
 **And:** and the search results should match `searchQuery` from the search param<br>
 **And:** search input value should equal to `searchQuery`
 
-**AC3**<br>
+**AC4**<br>
 **Given:** any state<br>
 **When:** the page address is changed<br>
 **And:** the pathname is `/search` with or without `searchQuery`<br>
@@ -140,7 +144,7 @@ Using [react-router](https://reactrouter.com/en/main) define routes according to
 **Then:** the search page results should be filtered by the genre specified in the search parameter<br>
 **And:** the specified genre name should be highlighted in UI
 
-**AC4**<br>
+**AC5**<br>
 **Given:** any state<br>
 **When:** the page address is changed<br>
 **And:** the pathname is `/search` with or without `searchQuery`<br>
@@ -148,34 +152,34 @@ Using [react-router](https://reactrouter.com/en/main) define routes according to
 **Then:** the search page results should be sorted by the property name specified in the search parameter (Release Date/Name)<br>
 **And:** the specified sorting option should be highlighted in UI
 
-**AC5**<br>
+**AC6**<br>
 **Given:** any state<br>
 **When:** the page address is changed<br>
 **And:** the pathname is `/search` with or without `searchQuery`<br>
 **And:** address bar contains `movie=movieId` search parameter<br>
 **Then:** the search page is displayed with the search panel replaced with movie details for the movie from `movie` search parameter
 
-**AC6**<br>
+**AC7**<br>
 **Given:** any state<br>
 **When:** the address bar pathname is changed to an unknown value<br>
 **Then:** a 404 page should be displayed
 
-**AC7**<br>
+**AC8**<br>
 **Given:** a user is on the search page<br>
 **When:** they change sorting option via UI<br>
 **Then:** the address bar should be changed to include new sorting option in `sortBy` search parameter
 
-**AC8**<br>
+**AC9**<br>
 **Given:** a user is on the search page<br>
 **When:** they select a genre<br>
 **Then:** the address bar should be changed to include selected genre in `genre` search parameter
 
-**AC9**<br>
+**AC10**<br>
 **Given:** a user is on the search page<br>
 **When:** they type in a query into the search box and hit Enter or click `Search`<br>
 **Then:** the address bar pathname should be changed to `/search?searchQuery=searchValue` where `searchQuery` equals to the search input value
 
-**AC10**<br>
+**AC11**<br>
 **Given:** a user is on the search page<br>
 **When:** they click on a movie from the list<br>
 **Then:** the address bar search parameter `movie` should be set with value equal to clicked movie ID
