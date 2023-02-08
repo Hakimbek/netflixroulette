@@ -39,7 +39,7 @@ function MovieCard({ movie }: MoviePropsType) {
       <div className={styles.movie_info} onClick={handleMovieDetails}>
         <Poster posterPath={movie.poster_path} movieTitle={movie.title} />
         <div className={styles.movieCard_title}>
-          <div className={styles.movieCard_name} id={"movieCardTitle"}>
+          <div className={styles.movieCard_name} data-cy={"movieCardTitle"}>
             {movie.title}
           </div>
           <div className={styles.movieCard_year}>

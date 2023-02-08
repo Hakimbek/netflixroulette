@@ -10,9 +10,9 @@ describe("The Home Page", () => {
       "include",
       "search?sortBy=release_date&searchQuery=Puss+in+Boots"
     );
-    cy.get("#movieCardTitle").should("have.text", searchParam);
+    cy.get("[movieCardTitle]").should("have.text", searchParam);
     cy.get(`img[alt='${searchParam}']`).click();
-    cy.get("#movieDetailsTitle").should("have.text", searchParam);
+    cy.get("[movieDetailsTitle]").should("have.text", searchParam);
     cy.get("img[alt=Magnifier]").click();
   });
 });

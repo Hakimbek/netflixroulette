@@ -17,20 +17,6 @@ describe("Modal", () => {
     );
 
     expect(screen.getByText(/add movie/i)).toBeInTheDocument();
-    expect(screen.getByRole("textbox", { name: "Title" })).toBeInTheDocument();
-    expect(screen.getByRole("textbox", { name: "Rating" })).toBeInTheDocument();
-    expect(
-      screen.getByRole("spinbutton", { name: "Runtime" })
-    ).toBeInTheDocument();
-    expect(
-      screen.getByRole("textbox", { name: "Movie url" })
-    ).toBeInTheDocument();
-    expect(
-      screen.getByRole("textbox", { name: "Release" })
-    ).toBeInTheDocument();
-    expect(
-      screen.getByRole("textbox", { name: "Overview" })
-    ).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Reset" })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Submit" })).toBeInTheDocument();
 

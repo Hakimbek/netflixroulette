@@ -16,7 +16,10 @@ function MovieDetailsBody() {
         </div>
         <div className={styles.movieDetails_rightCol}>
           <div className={styles.movieDetails_bodyWrapper}>
-            <div id={"movieDetailsTitle"} className={styles.movieDetails_title}>
+            <div
+              data-cy={"movieDetailsTitle"}
+              className={styles.movieDetails_title}
+            >
               {movie.title}
             </div>
             <div className={styles.movieDetails_rating}>
