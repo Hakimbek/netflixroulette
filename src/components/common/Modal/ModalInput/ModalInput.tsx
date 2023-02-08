@@ -37,12 +37,15 @@ function ModalInput({
 
   return (
     <div className={formStyles.input_wrapper}>
-      <label className={formStyles.label}>{label}</label>
+      <label htmlFor={label} className={formStyles.label}>
+        {label}
+      </label>
       <input
         {...register(name, { required: true, pattern, valueAsNumber })}
         className={`${inputStyles.modal_input} ${inputSize}`}
         type={type}
         placeholder={placeholder}
+        id={label}
       />
       <div className={formStyles.error}>
         {typeof error === "string" ? error : ""}

@@ -1,31 +1,49 @@
 # Get started
+
 ### 1. Movies API Server
-   - Clone the backend [repository](https://github.com/VarvaraZadnepriak/MoviesAPI.ReactJS)
-   - Navigate to the cloned repository folder and run `npm install` to install dependencies
-   - Run `npm start` command to start the backend server. It will start on `https://localhost:4000`
-### 2. Netflixroulette   
-   - Clone the netflixroulette [repository](https://github.com/Hakimbek/netflixroulette)
-   - Navigate to the cloned repository folder and run `npm install` to install dependencies
-   - Run `npm start` command to start the netflixroulette. It will start on `http://localhost:3000`
-   - Change current location to `http://localhost:3000/search` (add search to URL)
+
+- Clone the backend [repository](https://github.com/VarvaraZadnepriak/MoviesAPI.ReactJS)
+- Navigate to the cloned repository folder and run `npm install` to install dependencies
+- Run `npm start` command to start the backend server. It will start on `https://localhost:4000`
+
+### 2. Netflixroulette
+
+- Clone the netflixroulette [repository](https://github.com/Hakimbek/netflixroulette)
+- Navigate to the cloned repository folder and run `npm install` to install dependencies
+- Run `npm start` command to start the netflixroulette. It will start on `http://localhost:3000`
+- Change current location to `http://localhost:3000/search` (add search to URL)
+
 # What was done step by step
+
 ## Module#1
+
 ### Task
+
 Training Core Concept
+
 ### Cover
-  - React.createElement
-  - React.Component
-  - Functional component
+
+- React.createElement
+- React.Component
+- Functional component
+
 ## Module#2
+
 ### Task
+
 Create `package.json` file and install react. Install and configure webpack & babel to get build artifact by running npm command.
 Set DEV and PROD build configuration. Install and configure TypeScript for project.
+
 ### Cover
-  - Entry and outputs
-  - Loaders and plugins
-  - Configuration
+
+- Entry and outputs
+- Loaders and plugins
+- Configuration
+
 ## Module#3 and Module#4
+
 ### Task
+
 Write components implementing HTML markup for required [design](https://www.figma.com/file/fKGjrOqR6nJe6LYJopGCZ8/%5BCDP%5D-Home-Task-%E2%80%93-React-v1?node-id=0%3A1&t=stJweXKpoypn8K77-0).
 
 ![netflixroulette](https://user-images.githubusercontent.com/81404686/213852178-d3a498b3-3c39-481f-bf7d-afbed780a001.png)
@@ -34,7 +52,7 @@ Implement and use `<ErrorBoundary />` component for catching and displaying erro
 You could create one component and wrap all your application or use several components.
 
 Implement markup and styles for [Add movie](https://www.figma.com/file/fKGjrOqR6nJe6LYJopGCZ8/%5BCDP%5D-Home-Task-%E2%80%93-React-v1?node-id=0%3A505&t=zlfSS8OfRAK6v15T-0), [Edit movie](https://www.figma.com/file/fKGjrOqR6nJe6LYJopGCZ8/%5BCDP%5D-Home-Task-%E2%80%93-React-v1?node-id=0%3A1005&t=dxTVVeEEATORfSZy-0), [Delete movie](https://www.figma.com/file/fKGjrOqR6nJe6LYJopGCZ8/%5BCDP%5D-Home-Task-%E2%80%93-React-v1?node-id=0%3A1817&t=VDJjNGtln570Ygd2-0) modal windows and sorting.
-No need to implement real API calls. Only add pages with mocked data. 
+No need to implement real API calls. Only add pages with mocked data.
 
 ![add](https://user-images.githubusercontent.com/81404686/213856540-acbcb774-0d79-42ed-9188-9f45d8246086.png)
 
@@ -43,14 +61,18 @@ No need to implement real API calls. Only add pages with mocked data.
 ![delete](https://user-images.githubusercontent.com/81404686/213856606-48f1f913-cbfd-4e43-84d0-c64d8f47594c.png)
 
 ### Cover
-  - Types of components (smart/dumb, class/function, etc.)
-  - Props and state
-  - Higher-order components
-  - Lists and keys
-  - Context
-  - Fragments and portals
+
+- Types of components (smart/dumb, class/function, etc.)
+- Props and state
+- Higher-order components
+- Lists and keys
+- Context
+- Fragments and portals
+
 ## Module#5
+
 ### Task
+
 **Implement a possibility to view movie [details](https://www.figma.com/file/fKGjrOqR6nJe6LYJopGCZ8/%5BCDP%5D-Home-Task-%E2%80%93-React-v1?node-id=0%3A393&t=j9vkCtHNGtL50arh-0)**<br>
 **Given:** the user is on the main page<br>
 **And:** there are movies in the list<br>
@@ -63,23 +85,38 @@ No need to implement real API calls. Only add pages with mocked data.
 **When:** they click on the search icon at the top right corner<br>
 **Then:** the movie details panel is replaced with the search panel<br>
 **Then:** the search panel at the top is replaced with clicked movie details
+
 ### Cover
-  - Rules of hooks
-  - Basic built-in hooks: useState, useReducer, useEffect, useRef
-  - Custom hooks
+
+- Rules of hooks
+- Basic built-in hooks: useState, useReducer, useEffect, useRef
+- Custom hooks
+
 ## Module#6
+
 ### Task
+
 Make your components perform real AJAX requests. Implement data fetches as async actions and pass data to your components with redux.
 Implement filtering and sorting (by genre, rating, and release date) as redux actions. Don't filter or sort on the frontend side, use backend API for this.
+
 ### Cover
-  - Redux core concepts
+
+- Redux core concepts
+
 ## Module#7
+
 ### Task
+
 Install [useForm](https://react-hook-form.com/), implement a possibility to [Add movie](https://www.figma.com/file/fKGjrOqR6nJe6LYJopGCZ8/%5BCDP%5D-Home-Task-%E2%80%93-React-v1?node-id=0%3A505&t=zlfSS8OfRAK6v15T-0), [Edit movie](https://www.figma.com/file/fKGjrOqR6nJe6LYJopGCZ8/%5BCDP%5D-Home-Task-%E2%80%93-React-v1?node-id=0%3A1005&t=dxTVVeEEATORfSZy-0), [Delete movie](https://www.figma.com/file/fKGjrOqR6nJe6LYJopGCZ8/%5BCDP%5D-Home-Task-%E2%80%93-React-v1?node-id=0%3A1817&t=VDJjNGtln570Ygd2-0).
+
 ### Cover
-  - [useForm](https://react-hook-form.com/)
+
+- [useForm](https://react-hook-form.com/)
+
 ## Module#8
+
 ### Task
+
 Using [react-router](https://reactrouter.com/en/main) define routes according to the following acceptance criteria.
 
 **AC1**<br>
@@ -142,5 +179,7 @@ Using [react-router](https://reactrouter.com/en/main) define routes according to
 **Given:** a user is on the search page<br>
 **When:** they click on a movie from the list<br>
 **Then:** the address bar search parameter `movie` should be set with value equal to clicked movie ID
+
 ### Cover
-  - [react-router-dom](https://reactrouter.com/en/main)
+
+- [react-router-dom](https://reactrouter.com/en/main)

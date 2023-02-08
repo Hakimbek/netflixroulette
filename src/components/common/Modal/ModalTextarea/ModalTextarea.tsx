@@ -12,10 +12,13 @@ type ModalTextareaPropsType = {
 function ModalTextarea({ register, errors }: ModalTextareaPropsType) {
   return (
     <div className={formStyles.input_wrapper}>
-      <label className={formStyles.label}>Overview</label>
+      <label htmlFor={"Overview"} className={formStyles.label}>
+        Overview
+      </label>
       <textarea
         {...register("overview", { required: true })}
         className={textareaStyles.modal_textarea}
+        id={"Overview"}
       ></textarea>
       <div className={formStyles.error}>
         {errors.overview && "Overview is required"}

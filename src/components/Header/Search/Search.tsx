@@ -1,5 +1,5 @@
 import Button from "../../common/Button/Button";
-import { useSearchParams, Form } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { FormEvent, useState } from "react";
 
 import styles from "./search.module.css";
@@ -25,8 +25,9 @@ function Search() {
   return (
     <div className={styles.search_wrapper}>
       <p className={styles.search_title}>Find your movie</p>
-      <Form onSubmit={submit} action={"/search"} className={styles.search_form}>
+      <form onSubmit={submit} action={"/search"} className={styles.search_form}>
         <input
+          autoFocus={true}
           name={"searchQuery"}
           className={styles.search_input}
           placeholder={"What do you want to watch?"}
@@ -37,7 +38,7 @@ function Search() {
         <Button type={"submit"} btnType={"btn_danger"}>
           Search
         </Button>
-      </Form>
+      </form>
     </div>
   );
 }
